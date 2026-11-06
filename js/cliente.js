@@ -535,6 +535,12 @@
       return;
     }
 
+    const hoyStr = new Date().toISOString().split('T')[0];
+    if (state.fechaSeleccionada < hoyStr) {
+      showToast('No es posible realizar reservas en fechas pasadas', 'warning');
+      return;
+    }
+
     const nombre = dom.clientNameInput.value.trim();
     const contacto = dom.clientPhoneInput.value.trim();
     const personas = parseInt(dom.clientGuestsInput.value, 10);
