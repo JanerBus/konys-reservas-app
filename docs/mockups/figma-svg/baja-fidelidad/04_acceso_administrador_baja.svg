@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 860" width="1440" height="860">
+<rect width="1440" height="860" fill="#E2E8F0"/>
+<rect x="80" y="24" width="520" height="28" rx="6" fill="#475569"/>
+<text x="96" y="42" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">FIGMA FRAME 04 · ACCESO DE ADMINISTRADOR /admin (BAJA FIDELIDAD · WIREFRAME)</text>
+<g id="Card_Login_Admin">
+<rect x="480.0" y="170.0" width="480" height="520" rx="20" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<g id="Placeholder_670_214"><rect x="670.0" y="214.0" width="100" height="76" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/><line x1="670.0" y1="214.0" x2="770.0" y2="290.0" stroke="#94A3B8" stroke-width="1.2"/><line x1="770.0" y1="214.0" x2="670.0" y2="290.0" stroke="#94A3B8" stroke-width="1.2"/><rect x="678.0" y="240.0" width="84" height="24" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1"/><text x="720.0" y="256.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">LOGO</text></g>
+<text x="720.0" y="334.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="24" font-weight="800" fill="#0F2B3D" text-anchor="middle">Panel de administración</text>
+<text x="720.0" y="360.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="500" fill="#64748B" text-anchor="middle">Konys Pizza · Ruta protegida /admin (RF-08)</text>
+<text x="528.0" y="414.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155">Contraseña de administrador</text>
+<rect x="528.0" y="426.0" width="384" height="50" rx="10" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+<text x="548.0" y="458.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F2B3D">••••••••••••</text>
+<text x="892.0" y="456.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="end">Mostrar</text>
+<rect x="528.0" y="504.0" width="384" height="52" rx="12" fill="#1E293B"/>
+<text x="720.0" y="536.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Ingresar al panel</text>
+<rect x="528.0" y="578.0" width="384" height="44" rx="8" fill="#F1F5F9"/>
+<text x="720.0" y="605.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#475569" text-anchor="middle">Acceso exclusivo para gestión de mesas, horarios y reservas</text>
+<text x="720.0" y="656.0" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">← Volver a la página principal de clientes</text>
+</g>
+</svg>

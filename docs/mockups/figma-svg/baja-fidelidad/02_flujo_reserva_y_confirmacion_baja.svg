@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" width="1440" height="920">
+<rect width="1440" height="920" fill="#CBD5E1"/>
+<rect x="0" y="0" width="1440" height="60" fill="#E2E8F0" stroke="#94A3B8"/>
+<text x="60" y="36" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#1E293B">KONYS PIZZA · FLUJO DE RESERVA Y COMPROBANTE (BAJA FIDELIDAD · WIREFRAME)</text>
+<g id="Modal_Flujo_Reserva">
+<rect x="60" y="84" width="830" height="780" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<line x1="60" y1="156" x2="890" y2="156" stroke="#94A3B8" stroke-width="1.5"/>
+<text x="88" y="129" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="22" font-weight="700" fill="#1E293B">Reservar - Mesa 3 (Salón, 6 personas)</text>
+<text x="854" y="129" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="700" fill="#475569" text-anchor="middle">X</text>
+<g id="Step1_Fecha">
+<text x="92" y="189" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#1E293B">1. Elige la fecha (RF-03)</text>
+<rect x="92" y="203" width="350" height="42" rx="8" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+<text x="108" y="229" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#334155">Sábado, 17 de octubre de 2026</text>
+<rect x="92" y="257" width="350" height="236" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="267" y="283" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">◀   OCTUBRE 2026   ▶</text>
+<text x="120" y="307" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">L</text>
+<text x="168" y="307" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">M</text>
+<text x="216" y="307" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">M</text>
+<text x="264" y="307" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">J</text>
+<text x="312" y="307" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">V</text>
+<text x="360" y="307" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">S</text>
+<text x="408" y="307" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">D</text>
+<rect x="102" y="317" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="120" y="334" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">1</text>
+<rect x="150" y="317" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="168" y="334" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">2</text>
+<rect x="198" y="317" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="216" y="334" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">3</text>
+<rect x="246" y="317" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="264" y="334" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">4</text>
+<rect x="294" y="317" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="312" y="334" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">5</text>
+<rect x="342" y="317" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="360" y="334" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">6</text>
+<rect x="390" y="317" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="408" y="334" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">7</text>
+<rect x="102" y="350" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="120" y="367" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">8</text>
+<rect x="150" y="350" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="168" y="367" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">9</text>
+<rect x="198" y="350" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="216" y="367" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">10</text>
+<rect x="246" y="350" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="264" y="367" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">11</text>
+<rect x="294" y="350" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="312" y="367" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">12</text>
+<rect x="342" y="350" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="360" y="367" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">13</text>
+<rect x="390" y="350" width="36" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+<text x="408" y="367" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#CBD5E1" text-anchor="middle">14</text>
+<rect x="102" y="383" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="120" y="400" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">15</text>
+<rect x="150" y="383" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="168" y="400" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">16</text>
+<rect x="198" y="383" width="36" height="26" rx="6" fill="#334155" stroke="#E2E8F0" stroke-width="1"/>
+<text x="216" y="400" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">17</text>
+<rect x="246" y="383" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="264" y="400" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">18</text>
+<rect x="294" y="383" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="312" y="400" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">19</text>
+<rect x="342" y="383" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="360" y="400" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">20</text>
+<rect x="390" y="383" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="408" y="400" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">21</text>
+<rect x="102" y="416" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="120" y="433" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">22</text>
+<rect x="150" y="416" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="168" y="433" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">23</text>
+<rect x="198" y="416" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="216" y="433" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">24</text>
+<rect x="246" y="416" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="264" y="433" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">25</text>
+<rect x="294" y="416" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="312" y="433" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">26</text>
+<rect x="342" y="416" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="360" y="433" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">27</text>
+<rect x="390" y="416" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="408" y="433" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">28</text>
+<rect x="102" y="449" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="120" y="466" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">29</text>
+<rect x="150" y="449" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="168" y="466" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">30</text>
+<rect x="198" y="449" width="36" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<text x="216" y="466" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="500" fill="#1E293B" text-anchor="middle">31</text>
+</g>
+<g id="Step2_Horarios">
+<text x="92" y="515" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#1E293B">2. Elige la hora (RF-04 · Slots de 60 min)</text>
+<text x="92" y="537" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#64748B">JORNADA ALMUERZO (12:30 p.m. – 2:30 p.m.)</text>
+<rect x="92" y="547" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="132" y="571" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">12:30</text>
+<rect x="180" y="547" width="80" height="38" rx="8" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5"/>
+<text x="220" y="571" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#64748B" text-anchor="middle">13:00</text>
+<rect x="268" y="547" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="308" y="571" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">13:30</text>
+<rect x="356" y="547" width="80" height="38" rx="8" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5"/>
+<text x="396" y="571" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#64748B" text-anchor="middle">14:00</text>
+<text x="92" y="609" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#64748B">JORNADA NOCHE (5:00 p.m. – 11:00 p.m.)</text>
+<rect x="92" y="619" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="132" y="643" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">17:00</text>
+<rect x="180" y="619" width="80" height="38" rx="8" fill="#1E293B" stroke="#1E293B" stroke-width="1.5"/>
+<text x="220" y="643" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">17:30</text>
+<rect x="268" y="619" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="308" y="643" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">18:00</text>
+<rect x="356" y="619" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="396" y="643" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">18:30</text>
+<rect x="92" y="667" width="80" height="38" rx="8" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5"/>
+<text x="132" y="691" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#64748B" text-anchor="middle">19:00</text>
+<rect x="180" y="667" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="220" y="691" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">19:30</text>
+<rect x="268" y="667" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="308" y="691" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">20:00</text>
+<rect x="356" y="667" width="80" height="38" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="396" y="691" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">20:30</text>
+<rect x="92" y="729" width="14" height="14" rx="3" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+<text x="112" y="740" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" fill="#475569">Libre</text>
+<rect x="167" y="729" width="14" height="14" rx="3" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1"/>
+<text x="187" y="740" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" fill="#475569">Ocupado</text>
+<rect x="262" y="729" width="14" height="14" rx="3" fill="#1E293B"/>
+<text x="282" y="740" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#1E293B">Seleccionado (17:30)</text>
+</g>
+<g id="Step3_Datos_Cliente">
+<text x="480" y="189" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#1E293B">3. Tus datos (RF-05)</text>
+<text x="480" y="213" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569">Nombre completo *</text>
+<rect x="480" y="223" width="375" height="46" rx="8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.4"/>
+<text x="496" y="251" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="600" fill="#0F2B3D">Juan Pérez</text>
+<text x="480" y="303" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569">Teléfono / WhatsApp (opcional)</text>
+<rect x="480" y="313" width="375" height="46" rx="8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.4"/>
+<text x="496" y="341" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="600" fill="#0F2B3D">315 482 9104</text>
+<text x="480" y="393" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569">Número de personas * (Máx. 6 en Mesa 3)</text>
+<rect x="480" y="403" width="375" height="46" rx="8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.4"/>
+<text x="496" y="431" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="600" fill="#0F2B3D">4 personas</text>
+<rect x="480" y="483" width="375" height="150" rx="12" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5"/>
+<text x="500" y="513" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="800" fill="#1E293B">Resumen de tu reserva</text>
+<text x="500" y="539" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#334155">• Mesa: Mesa 3 (Zona Salón · Cap. 6)</text>
+<text x="500" y="563" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#334155">• Fecha y hora: Sáb 17 oct 2026 · 17:30 – 18:30</text>
+<text x="500" y="587" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#334155">• Duración estimada: 1 hora (60 min)</text>
+<text x="500" y="611" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#475569">✓ Verificación en tiempo real con Supabase (sin costo)</text>
+<rect x="480" y="657" width="375" height="54" rx="12" fill="#1E293B"/>
+<text x="667.5" y="690" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Confirmar reserva</text>
+</g>
+</g>
+<g id="Modal_Confirmacion_RF06">
+<rect x="930" y="84" width="450" height="780" rx="8" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<circle cx="1155.0" cy="194" r="44" fill="#F8FAFC" stroke="#1E293B" stroke-width="2.5"/>
+<text x="1155.0" y="202" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="24" font-weight="800" fill="#1E293B" text-anchor="middle">OK</text>
+<text x="1155.0" y="279" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="26" font-weight="800" fill="#1E293B" text-anchor="middle">¡Reserva confirmada!</text>
+<text x="1155.0" y="306" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="500" fill="#64748B" text-anchor="middle">Comprobante visual de tu reserva en Konys Pizza (RF-06)</text>
+<rect x="966" y="334" width="378" height="360" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+<rect x="966" y="334" width="378" height="48" rx="14" fill="#334155"/>
+<text x="1155.0" y="364" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">COMPROBANTE #KP-2026-1017</text>
+<text x="990" y="416" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">Cliente:</text>
+<text x="1320" y="416" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#0F2B3D" text-anchor="end">Juan Pérez</text>
+<line x1="986" y1="428" x2="1324" y2="428" stroke="#E2E8F0" stroke-width="1"/>
+<text x="990" y="454" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">Contacto:</text>
+<text x="1320" y="454" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#0F2B3D" text-anchor="end">315 482 9104</text>
+<line x1="986" y1="466" x2="1324" y2="466" stroke="#E2E8F0" stroke-width="1"/>
+<text x="990" y="492" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">Mesa asignada:</text>
+<text x="1320" y="492" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#0F2B3D" text-anchor="end">Mesa 3 (Zona Salón)</text>
+<line x1="986" y1="504" x2="1324" y2="504" stroke="#E2E8F0" stroke-width="1"/>
+<text x="990" y="530" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">Fecha:</text>
+<text x="1320" y="530" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#0F2B3D" text-anchor="end">Sáb 17 oct 2026</text>
+<line x1="986" y1="542" x2="1324" y2="542" stroke="#E2E8F0" stroke-width="1"/>
+<text x="990" y="568" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">Horario:</text>
+<text x="1320" y="568" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#0F2B3D" text-anchor="end">17:30 – 18:30 (1 hora)</text>
+<line x1="986" y1="580" x2="1324" y2="580" stroke="#E2E8F0" stroke-width="1"/>
+<text x="990" y="606" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">Personas:</text>
+<text x="1320" y="606" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#0F2B3D" text-anchor="end">4 personas (Cap. máx: 6)</text>
+<line x1="986" y1="618" x2="1324" y2="618" stroke="#E2E8F0" stroke-width="1"/>
+<text x="990" y="644" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">Estado:</text>
+<text x="1320" y="644" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#0F2B3D" text-anchor="end">CONFIRMADA</text>
+<rect x="966" y="729" width="378" height="52" rx="12" fill="#FFFFFF" stroke="#0F2B3D" stroke-width="1.5"/>
+<text x="1155.0" y="760" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">Volver al inicio</text>
+</g>
+</svg>

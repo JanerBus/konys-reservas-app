@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1160" width="1440" height="1160">
+<rect width="1440" height="1160" fill="#F8FAFC"/>
+<g id="Frame_Header">
+<rect x="0" y="0" width="1440" height="76" fill="#0F2B3D"/>
+<rect x="80" y="18" width="40" height="40" rx="10" fill="#F28C28"/>
+<text x="100" y="45" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="#0F2B3D" text-anchor="middle">K</text>
+<text x="134" y="40" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">KONYS PIZZA</text>
+<text x="134" y="57" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="500" fill="#94A3B8">Bucaramanga · Cra. 36 con Calle 41</text>
+<text x="680" y="44" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#F28C28">Inicio</text>
+<rect x="680" y="52" width="38" height="3" rx="1.5" fill="#F28C28"/>
+<text x="760" y="44" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="500" fill="#E2E8F0">Mesas</text>
+<text x="850" y="44" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="500" fill="#E2E8F0">Carta Digital</text>
+<text x="975" y="44" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="500" fill="#E2E8F0">Reservar</text>
+<text x="1075" y="44" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="500" fill="#E2E8F0">Contacto</text>
+<rect x="1240" y="20" width="120" height="36" rx="8" fill="#1E3A52" stroke="#F28C28" stroke-width="1.2"/>
+<text x="1300" y="43" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#F28C28" text-anchor="middle">Acceso Admin</text>
+</g>
+<g id="Frame_Hero">
+<rect x="80" y="98" width="1280" height="230" rx="20" fill="#0F2B3D"/>
+<rect x="80" y="98" width="1280" height="230" rx="20" fill="none" stroke="#1E3A52" stroke-width="2"/>
+<circle cx="1180" cy="213" r="102" fill="#163A50"/>
+<circle cx="1180" cy="213" r="84" fill="#091C29" stroke="#F28C28" stroke-width="2"/>
+<text x="1180" y="198" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="800" fill="#F28C28" text-anchor="middle">HORARIO HOY</text>
+<text x="1180" y="220" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">12:30 – 14:30</text>
+<text x="1180" y="238" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">17:00 – 23:00</text>
+<rect x="130" y="122" width="340" height="28" rx="14" fill="#163A50" stroke="#F28C28" stroke-width="1.2"/>
+<text x="300" y="140" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#F28C28" text-anchor="middle">RESERVAS EN TIEMPO REAL · +34.9K SEGUIDORES</text>
+<text x="130" y="190" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="40" font-weight="800" fill="#FFFFFF">KONYS PIZZA</text>
+<text x="130" y="222" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="18" font-weight="400" fill="#CBD5E1">«La pizza más icónica de la ciudad» — Reserva tu mesa sin filas ni esperas.</text>
+<rect x="130" y="248" width="215" height="50" rx="12" fill="#F28C28"/>
+<text x="237.5" y="279" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">Reserva tu mesa →</text>
+<rect x="362" y="248" width="180" height="50" rx="12" fill="#163A50" stroke="#64748B" stroke-width="1.2"/>
+<text x="452" y="279" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="15" font-weight="600" fill="#E2E8F0" text-anchor="middle">Ver carta digital</text>
+</g>
+<g id="Frame_Seccion_Mesas">
+<text x="80" y="374" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="24" font-weight="800" fill="#0F2B3D">Nuestras mesas disponibles (RF-01)</text>
+<text x="80" y="398" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748B">Selecciona una mesa para consultar sus horarios disponibles por jornada (Almuerzo y Noche)</text>
+<rect x="1010" y="356" width="105" height="36" rx="18" fill="#0F2B3D" stroke="#0F2B3D" stroke-width="1.2"/>
+<text x="1062.5" y="379" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Todas (4)</text>
+<rect x="1130" y="356" width="105" height="36" rx="18" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="1182.5" y="379" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Terraza (2)</text>
+<rect x="1255" y="356" width="105" height="36" rx="18" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="1307.5" y="379" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Salón (2)</text>
+<g id="Card_Mesa_1">
+<rect x="80" y="420" width="296" height="320" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<g id="Illust_Mesa_92_432"><rect x="92" y="432" width="272" height="140" rx="10" fill="#113A3B"/><circle cx="228.0" cy="512.0" r="52" fill="#FFFFFF" fill-opacity="0.05"/><path d="M 102 450 Q 228.0 466 354 450" fill="none" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="1.5"/><circle cx="127.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="177.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="228.0" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="278.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="329.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="186.0" cy="512.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="270.0" cy="512.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><rect x="199.0" y="491.0" width="58" height="42" rx="12" fill="#FFFBEB" stroke="#F28C28" stroke-width="2.5"/><circle cx="228.0" cy="512.0" r="13" fill="#FDE68A" stroke="#F28C28" stroke-width="1.5"/><circle cx="228.0" cy="512.0" r="8" fill="#EA580C"/><circle cx="225.0" cy="510.0" r="1.5" fill="#FEF08A"/><circle cx="231.0" cy="514.0" r="1.5" fill="#FEF08A"/><rect x="104" y="444" width="74" height="24" rx="12" fill="#091C29"/><text x="141" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">Terraza</text><rect x="268" y="444" width="84" height="24" rx="12" fill="#FFFFFF"/><text x="310" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#0F2B3D" text-anchor="middle">2 pers.</text></g>
+<text x="100" y="604" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="#0F2B3D">Mesa 1</text>
+<rect x="270" y="586" width="90" height="26" rx="13" fill="#DCFCE7"/>
+<text x="315" y="603" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">● Libre</text>
+<text x="100" y="628" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569">Zona: Terraza · Capacidad: 2 personas</text>
+<text x="100" y="650" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Vista exterior fresca · Ideal parejas</text>
+<text x="100" y="672" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803D">5 slots libres hoy</text>
+<rect x="100" y="686" width="256" height="40" rx="10" fill="#F28C28"/>
+<text x="228.0" y="711" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Ver horarios disponibles</text>
+</g>
+<g id="Card_Mesa_2">
+<rect x="408" y="420" width="296" height="320" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<g id="Illust_Mesa_420_432"><rect x="420" y="432" width="272" height="140" rx="10" fill="#113A3B"/><circle cx="556.0" cy="512.0" r="52" fill="#FFFFFF" fill-opacity="0.05"/><path d="M 430 450 Q 556.0 466 682 450" fill="none" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="1.5"/><circle cx="455.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="505.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="556.0" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="606.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="657.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="512.0" cy="498.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="600.0" cy="498.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="512.0" cy="526.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="600.0" cy="526.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><rect x="518.0" y="489.0" width="76" height="46" rx="12" fill="#FFFBEB" stroke="#F28C28" stroke-width="2.5"/><circle cx="556.0" cy="512.0" r="13" fill="#FDE68A" stroke="#F28C28" stroke-width="1.5"/><circle cx="556.0" cy="512.0" r="8" fill="#EA580C"/><circle cx="553.0" cy="510.0" r="1.5" fill="#FEF08A"/><circle cx="559.0" cy="514.0" r="1.5" fill="#FEF08A"/><rect x="432" y="444" width="74" height="24" rx="12" fill="#091C29"/><text x="469" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">Terraza</text><rect x="596" y="444" width="84" height="24" rx="12" fill="#FFFFFF"/><text x="638" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#0F2B3D" text-anchor="middle">4 pers.</text></g>
+<text x="428" y="604" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="#0F2B3D">Mesa 2</text>
+<rect x="598" y="586" width="90" height="26" rx="13" fill="#DCFCE7"/>
+<text x="643" y="603" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">● Libre</text>
+<text x="428" y="628" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569">Zona: Terraza · Capacidad: 4 personas</text>
+<text x="428" y="650" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Terraza cubierta · Ambiente familiar</text>
+<text x="428" y="672" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803D">4 slots libres hoy</text>
+<rect x="428" y="686" width="256" height="40" rx="10" fill="#F28C28"/>
+<text x="556.0" y="711" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Ver horarios disponibles</text>
+</g>
+<g id="Card_Mesa_3">
+<rect x="736" y="420" width="296" height="320" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<g id="Illust_Mesa_748_432"><rect x="748" y="432" width="272" height="140" rx="10" fill="#162A3A"/><circle cx="884.0" cy="512.0" r="52" fill="#FFFFFF" fill-opacity="0.05"/><path d="M 758 450 Q 884.0 466 1010 450" fill="none" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="1.5"/><circle cx="783.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="833.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="884.0" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="934.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="985.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="840.0" cy="498.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="928.0" cy="498.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="840.0" cy="526.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="928.0" cy="526.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="884.0" cy="478.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="884.0" cy="546.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><rect x="846.0" y="489.0" width="76" height="46" rx="12" fill="#FFFBEB" stroke="#38BDF8" stroke-width="2.5"/><circle cx="884.0" cy="512.0" r="13" fill="#FDE68A" stroke="#F28C28" stroke-width="1.5"/><circle cx="884.0" cy="512.0" r="8" fill="#EA580C"/><circle cx="881.0" cy="510.0" r="1.5" fill="#FEF08A"/><circle cx="887.0" cy="514.0" r="1.5" fill="#FEF08A"/><rect x="760" y="444" width="74" height="24" rx="12" fill="#091C29"/><text x="797" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">Salón</text><rect x="924" y="444" width="84" height="24" rx="12" fill="#FFFFFF"/><text x="966" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#0F2B3D" text-anchor="middle">6 pers.</text></g>
+<text x="756" y="604" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="#0F2B3D">Mesa 3</text>
+<rect x="926" y="586" width="90" height="26" rx="13" fill="#FEE2E2"/>
+<text x="971" y="603" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#B91C1C" text-anchor="middle">● Ocupada</text>
+<text x="756" y="628" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569">Zona: Salón · Capacidad: 6 personas</text>
+<text x="756" y="650" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Salón principal climatizado · Grupos</text>
+<text x="756" y="672" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#D97706">Sin cupo a las 19:00</text>
+<rect x="756" y="686" width="256" height="40" rx="10" fill="#0F2B3D"/>
+<text x="884.0" y="711" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Ver horarios disponibles</text>
+</g>
+<g id="Card_Mesa_4">
+<rect x="1064" y="420" width="296" height="320" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<g id="Illust_Mesa_1076_432"><rect x="1076" y="432" width="272" height="140" rx="10" fill="#162A3A"/><circle cx="1212.0" cy="512.0" r="52" fill="#FFFFFF" fill-opacity="0.05"/><path d="M 1086 450 Q 1212.0 466 1338 450" fill="none" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="1.5"/><circle cx="1111.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="1161.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="1212.0" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="1262.5" cy="459" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="1313.0" cy="455" r="3.5" fill="#FDE047" fill-opacity="0.9"/><circle cx="1168.0" cy="498.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="1256.0" cy="498.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="1168.0" cy="526.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><circle cx="1256.0" cy="526.0" r="9" fill="#F8FAFC" stroke="#0F2B3D" stroke-width="2"/><rect x="1174.0" y="489.0" width="76" height="46" rx="12" fill="#FFFBEB" stroke="#38BDF8" stroke-width="2.5"/><circle cx="1212.0" cy="512.0" r="13" fill="#FDE68A" stroke="#F28C28" stroke-width="1.5"/><circle cx="1212.0" cy="512.0" r="8" fill="#EA580C"/><circle cx="1209.0" cy="510.0" r="1.5" fill="#FEF08A"/><circle cx="1215.0" cy="514.0" r="1.5" fill="#FEF08A"/><rect x="1088" y="444" width="74" height="24" rx="12" fill="#091C29"/><text x="1125" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">Salón</text><rect x="1252" y="444" width="84" height="24" rx="12" fill="#FFFFFF"/><text x="1294" y="460" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#0F2B3D" text-anchor="middle">4 pers.</text></g>
+<text x="1084" y="604" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="#0F2B3D">Mesa 4</text>
+<rect x="1254" y="586" width="90" height="26" rx="13" fill="#DCFCE7"/>
+<text x="1299" y="603" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">● Libre</text>
+<text x="1084" y="628" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="600" fill="#475569">Zona: Salón · Capacidad: 4 personas</text>
+<text x="1084" y="650" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Salón central junto a horno artesanal</text>
+<text x="1084" y="672" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803D">6 slots libres hoy</text>
+<rect x="1084" y="686" width="256" height="40" rx="10" fill="#F28C28"/>
+<text x="1212.0" y="711" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Ver horarios disponibles</text>
+</g>
+</g>
+<g id="Frame_Carta_Digital">
+<text x="80" y="790" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="24" font-weight="800" fill="#0F2B3D">Carta Digital Konys Pizza (RF-07 · Modo Lectura)</text>
+<text x="80" y="814" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748B">Explora nuestras pizzas icónicas, entradas, postres y bebidas antes de tu visita</text>
+<rect x="980" y="772" width="85" height="34" rx="8" fill="#F28C28" stroke="#94A3B8" stroke-width="1"/>
+<text x="1022.5" y="794" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">Pizzas</text>
+<rect x="1075" y="772" width="85" height="34" rx="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+<text x="1117.5" y="794" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Entradas</text>
+<rect x="1180" y="772" width="85" height="34" rx="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+<text x="1222.5" y="794" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Postres</text>
+<rect x="1275" y="772" width="85" height="34" rx="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+<text x="1317.5" y="794" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Bebidas</text>
+<rect x="80" y="836" width="296" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<rect x="96" y="852" width="72" height="22" rx="6" fill="#FFF3E6"/>
+<text x="132" y="867" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#EA580C" text-anchor="middle">Pizzas</text>
+<text x="96" y="894" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#0F2B3D">Pizza Konys Especial</text>
+<text x="96" y="916" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Queso mozzarella, pepperoni artesanal,</text>
+<text x="96" y="934" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">tocineta ahumada, maíz tierno y pimentón.</text>
+<text x="96" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#F28C28">$ 38.000 COP</text>
+<text x="358" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803D" text-anchor="end">● Disponible</text>
+<rect x="408" y="836" width="296" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<rect x="424" y="852" width="72" height="22" rx="6" fill="#FFF3E6"/>
+<text x="460" y="867" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#EA580C" text-anchor="middle">Pizzas</text>
+<text x="424" y="894" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#0F2B3D">Pizza Santandereana</text>
+<text x="424" y="916" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Carne oreada desmechada, chorizo,</text>
+<text x="424" y="934" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">maduro dulce y queso doble crema.</text>
+<text x="424" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#F28C28">$ 42.000 COP</text>
+<text x="686" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803D" text-anchor="end">● Disponible</text>
+<rect x="736" y="836" width="296" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<rect x="752" y="852" width="72" height="22" rx="6" fill="#FFF3E6"/>
+<text x="788" y="867" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#EA580C" text-anchor="middle">Entradas</text>
+<text x="752" y="894" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#0F2B3D">Pan de Ajo Gratinado</text>
+<text x="752" y="916" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Baguette artesanal horneada con ajo,</text>
+<text x="752" y="934" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">mantequilla, finas hierbas y parmesano.</text>
+<text x="752" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#F28C28">$ 16.500 COP</text>
+<text x="1014" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803D" text-anchor="end">● Disponible</text>
+<rect x="1064" y="836" width="296" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+<rect x="1080" y="852" width="72" height="22" rx="6" fill="#FFF3E6"/>
+<text x="1116" y="867" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="11" font-weight="700" fill="#EA580C" text-anchor="middle">Bebidas</text>
+<text x="1080" y="894" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#0F2B3D">Limonada Cerezada Natural</text>
+<text x="1080" y="916" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">Limón Tahití recién exprimido, cerezas</text>
+<text x="1080" y="934" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="400" fill="#64748B">en almíbar y hielo frappé (16 oz).</text>
+<text x="1080" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="16" font-weight="800" fill="#F28C28">$ 11.000 COP</text>
+<text x="1342" y="966" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803D" text-anchor="end">● Disponible</text>
+</g>
+<g id="Frame_Footer">
+<rect x="0" y="1024" width="1440" height="136" fill="#091C29"/>
+<text x="80" y="1068" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="18" font-weight="800" fill="#F28C28">KONYS PIZZA · BUCARAMANGA</text>
+<text x="80" y="1094" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="400" fill="#CBD5E1">Dirección: Cra. 36 con Calle 41, Bucaramanga, Santander · Domicilios y Eventos</text>
+<text x="80" y="1116" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="13" font-weight="500" fill="#94A3B8">Dos jornadas de atención: Almuerzo (12:30 p.m. – 2:30 p.m.) y Noche (5:00 p.m. – 11:00 p.m.)</text>
+<rect x="1120" y="1058" width="240" height="44" rx="10" fill="#1E3A52"/>
+<text x="1240" y="1085" font-family="Segoe UI, Inter, Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Instagram @konys_pizza</text>
+</g>
+</svg>
