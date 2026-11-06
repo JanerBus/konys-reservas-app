@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Konys Pizza — Sistema de Reservas de Mesas</title>
+  <meta name="description" content="Reserva tu mesa en línea en Konys Pizza Bucaramanga (Cra. 36 con calle 41). Consulta disponibilidad en tiempo real y explora nuestra carta digital." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Supabase JS CDN (v2) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- HEADER INSTITUCIONAL -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Inicio Konys Pizza">
+        <div class="brand-badge">K</div>
+        <div class="brand-info">
+          <span class="brand-title">KONYS PIZZA</span>
+          <span class="brand-subtitle">Bucaramanga · Cra. 36 con Calle 41</span>
+        </div>
+      </a>
+
+      <!-- Navegación Escritorio -->
+      <nav id="mainNav" class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#mesas" class="nav-link">Mesas</a>
+        <a href="#carta" class="nav-link">Carta Digital</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Acceso discreto a Administrador (RF-08) -->
+        <a href="admin.html" class="btn-admin" title="Panel de Administración">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Admin
+        </a>
+
+        <!-- Botón Menú Móvil -->
+        <button id="btnMobileNav" class="btn-mobile-toggle" aria-label="Abrir menú de navegación">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero">
+    <div class="container hero-content">
+      <div class="hero-pill">
+        <span>✨ «La pizza más icónica de la ciudad»</span>
+      </div>
+      <h1 class="hero-title">Reserva tu mesa en <span>Konys Pizza</span></h1>
+      <p class="hero-subtitle">
+        Disfruta de la mejor experiencia gastronómica en Bucaramanga. Elige tu zona favorita, selecciona tu horario y asegura tu lugar en menos de 3 pasos.
+      </p>
+
+      <!-- Horarios de Atención -->
+      <div class="hero-shifts">
+        <div class="shift-card">
+          <span class="shift-icon">☀️</span>
+          <div>
+            <strong>Almuerzo:</strong> 12:30 p.m. – 2:30 p.m.
+          </div>
+        </div>
+        <div class="shift-card">
+          <span class="shift-icon">🌙</span>
+          <div>
+            <strong>Noche:</strong> 5:00 p.m. – 11:00 p.m.
+          </div>
+        </div>
+      </div>
+
+      <a href="#mesas" class="btn-hero-cta">
+        <span>Reserva tu mesa</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE MESAS DISPONIBLES (RF-01, RF-02) -->
+  <section id="mesas" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Nuestras mesas disponibles</h2>
+          <p class="section-desc">Selecciona una mesa para consultar sus horarios y disponibilidad en tiempo real.</p>
+        </div>
+
+        <!-- Filtros por Zona -->
+        <div class="filter-group" role="tablist" aria-label="Filtro de mesas por zona">
+          <button class="filter-btn active" data-zone="todas">Todas (<span id="countTodas">0</span>)</button>
+          <button class="filter-btn" data-zone="terraza">Terraza (<span id="countTerraza">0</span>)</button>
+          <button class="filter-btn" data-zone="salon">Salón (<span id="countSalon">0</span>)</button>
+        </div>
+      </div>
+
+      <!-- Grilla dinámica de mesas -->
+      <div id="tablesGrid" class="tables-grid">
+        <!-- Renderizado dinámicamente por cliente.js -->
+        <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
+          Cargando mesas disponibles...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA DIGITAL (RF-07) -->
+  <section id="carta" class="section" style="background-color: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Carta Digital Konys Pizza</h2>
+          <p class="section-desc">Explora nuestras pizzas icónicas, entradas, postres y bebidas antes de tu visita.</p>
+        </div>
+
+        <!-- Filtro de Categorías -->
+        <div class="filter-group" role="tablist" aria-label="Categorías del menú">
+          <button class="filter-btn active" data-cat="todas">Todas</button>
+          <button class="filter-btn" data-cat="pizzas">Pizzas</button>
+          <button class="filter-btn" data-cat="entradas">Entradas</button>
+          <button class="filter-btn" data-cat="postres">Postres</button>
+          <button class="filter-btn" data-cat="bebidas">Bebidas</button>
+        </div>
+      </div>
+
+      <!-- Grilla de platos -->
+      <div id="menuGrid" class="menu-grid">
+        <!-- Renderizado dinámicamente por cliente.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS & UBICACIÓN -->
+  <section id="nosotros" class="section">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, var(--primary) 0%, #15374E 100%); color: #FFFFFF; border-radius: var(--radius-lg); padding: 48px 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;">
+        <div>
+          <span style="color: var(--accent); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;">Tradición y Sabor</span>
+          <h2 style="font-size: 2rem; margin: 8px 0 16px; color: #FFFFFF;">¿Por qué Konys Pizza es la más icónica?</h2>
+          <p style="color: #CBD5E1; line-height: 1.6; margin-bottom: 20px;">
+            Masa madurada durante 48 horas, salsas preparadas artesanalmente con tomates seleccionados e ingredientes santandereanos de la más alta calidad. Un espacio acogedor para compartir momentos inolvidables en familia, con amigos o en pareja.
+          </p>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 1.7rem; font-weight: 800; color: var(--accent); font-family: 'Poppins';">+34.9K</div>
+              <div style="font-size: 0.82rem; color: #94A3B8;">Seguidores en Instagram</div>
+            </div>
+            <div>
+              <div style="font-size: 1.7rem; font-weight: 800; color: var(--accent); font-family: 'Poppins';">2 Jornadas</div>
+              <div style="font-size: 0.82rem; color: #94A3B8;">Almuerzos y Cenas</div>
+            </div>
+            <div>
+              <div style="font-size: 1.7rem; font-weight: 800; color: var(--accent); font-family: 'Poppins';">100%</div>
+              <div style="font-size: 0.82rem; color: #94A3B8;">Reserva en Tiempo Real</div>
+            </div>
+          </div>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radius-md); padding: 24px;">
+          <h3 style="font-size: 1.15rem; color: #FFFFFF; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            📍 Visítanos en Cabecera
+          </h3>
+          <p style="color: #E2E8F0; font-size: 0.9rem; margin-bottom: 12px;">
+            <strong>Dirección:</strong> Carrera 36 con Calle 41, Barrio Cabecera del Llano, Bucaramanga, Santander.
+          </p>
+          <p style="color: #CBD5E1; font-size: 0.85rem; margin-bottom: 16px;">
+            Servicio de comedor, terraza al aire libre, parqueadero cercano y opciones vegetarianas.
+          </p>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-secondary" style="background: var(--accent); color: #0F2B3D; border: none; font-weight: 700;">
+            Síguenos en Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER INSTITUCIONAL -->
+  <footer id="contacto" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+            <div class="brand-badge" style="width: 34px; height: 34px; font-size: 1.1rem;">K</div>
+            <strong style="color: #FFFFFF; font-size: 1.2rem; font-family: 'Poppins';">KONYS PIZZA</strong>
+          </div>
+          <p class="footer-text">
+            La pizza más icónica de Bucaramanga. Sistema digital de reserva de mesas y consulta de carta digital para una experiencia ágil, confiable y sin filas.
+          </p>
+          <p style="color: #94A3B8; font-size: 0.85rem;">
+            Cra. 36 con Calle 41 · Bucaramanga, Santander, Colombia
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Horarios de Atención</h4>
+          <p class="footer-text">
+            <strong>Lunes a Domingo:</strong><br />
+            ☀️ <strong>Almuerzo:</strong> 12:30 p.m. – 2:30 p.m.<br />
+            🌙 <strong>Noche:</strong> 5:00 p.m. – 11:00 p.m.
+          </p>
+          <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600;">
+            * Duración de reserva: 60 minutos
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Contacto & Enlaces</h4>
+          <p class="footer-text">
+            📞 <strong>WhatsApp:</strong> 315 482 9104<br />
+            📸 <strong>Instagram:</strong> @konys_pizza<br />
+            ✉️ <strong>Eventos:</strong> reservas@konyspizza.com
+          </p>
+          <div style="margin-top: 14px;">
+            <a href="admin.html" style="color: #94A3B8; font-size: 0.82rem; text-decoration: underline;">
+              Acceso a Administración (/admin)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Konys Pizza — Bucaramanga. Proyecto Académico de Ingeniería de Software (P3).
+        </div>
+        <div>
+          Diseñado con estándares WCAG 2.1 AA · JAMstack + Supabase
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       MODAL DE RESERVA EN 3 PASOS (RF-03 a RF-06)
+       ======================================================================= -->
+  <div id="bookingModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalMesaTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="modalMesaTitle" class="modal-title">Reservar Mesa</h3>
+          <p id="modalMesaSubtitle" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">
+            Zona y capacidad
+          </p>
+        </div>
+        <button id="btnCloseModal" class="btn-close-modal" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Indicador de pasos visual -->
+        <div class="steps-nav" id="stepsIndicator">
+          <div class="step-item active" id="stepIndicator1">
+            <div class="step-number">1</div>
+            <span class="step-label">Fecha</span>
+          </div>
+          <div class="step-item" id="stepIndicator2">
+            <div class="step-number">2</div>
+            <span class="step-label">Horario</span>
+          </div>
+          <div class="step-item" id="stepIndicator3">
+            <div class="step-number">3</div>
+            <span class="step-label">Tus Datos</span>
+          </div>
+        </div>
+
+        <!-- FLUJO DE RESERVA ACTIVO -->
+        <div id="bookingFlowContainer" class="booking-flow-grid">
+          <!-- Columna Izquierda: Fecha y Horarios -->
+          <div>
+            <div class="flow-col-title">
+              <span>📅</span> 1. Elige la fecha de tu visita
+            </div>
+            <div class="form-group">
+              <label for="bookingDateInput" class="form-label">Fecha de la reserva *</label>
+              <input type="date" id="bookingDateInput" class="form-input" required />
+              <div class="form-hint">Reservas habilitadas para hoy y los próximos 30 días.</div>
+            </div>
+
+            <!-- Grilla de Horarios (RF-04) -->
+            <div class="slots-container">
+              <div class="flow-col-title" style="margin-top: 20px;">
+                <span>⏰</span> 2. Elige tu franja horaria (60 min)
+              </div>
+
+              <!-- Jornada Almuerzo -->
+              <div class="shift-title">☀️ Jornada Almuerzo (12:30 p.m. – 2:30 p.m.)</div>
+              <div id="lunchSlotsGrid" class="slots-grid">
+                <!-- Generado por cliente.js -->
+              </div>
+
+              <!-- Jornada Noche -->
+              <div class="shift-title">🌙 Jornada Noche (5:00 p.m. – 11:00 p.m.)</div>
+              <div id="dinnerSlotsGrid" class="slots-grid">
+                <!-- Generado por cliente.js -->
+              </div>
+
+              <!-- Convención de Estados de Slots -->
+              <div class="slot-legend">
+                <div class="legend-item">
+                  <span class="legend-color free"></span> Libre
+                </div>
+                <div class="legend-item">
+                  <span class="legend-color occupied"></span> Ocupado
+                </div>
+                <div class="legend-item">
+                  <span class="legend-color selected"></span> Seleccionado
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Datos del Cliente y Resumen (RF-05) -->
+          <div>
+            <div class="flow-col-title">
+              <span>👤</span> 3. Datos del titular
+            </div>
+
+            <form id="bookingForm" onsubmit="return false;">
+              <div class="form-group">
+                <label for="clientNameInput" class="form-label">Nombre completo *</label>
+                <input type="text" id="clientNameInput" class="form-input" placeholder="Ej: Juan Pérez" required />
+              </div>
+
+              <div class="form-group">
+                <label for="clientPhoneInput" class="form-label">Teléfono / WhatsApp (opcional)</label>
+                <input type="tel" id="clientPhoneInput" class="form-input" placeholder="Ej: 315 482 9104" />
+                <div class="form-hint">Para enviarte recordatorios o avisos de tu mesa.</div>
+              </div>
+
+              <div class="form-group">
+                <label for="clientGuestsInput" class="form-label">Número de personas *</label>
+                <select id="clientGuestsInput" class="form-select" required>
+                  <option value="">Selecciona la cantidad...</option>
+                </select>
+                <div id="capacityWarning" class="form-hint" style="color: var(--accent); font-weight: 600;"></div>
+              </div>
+
+              <!-- Tarjeta de Resumen en vivo -->
+              <div class="booking-summary-card">
+                <div class="summary-title">
+                  <span>Resumen de tu reserva</span>
+                  <span class="status-badge libre" id="summaryBadge">Pendiente</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Mesa seleccionada:</span>
+                  <span class="summary-val" id="summaryMesa">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Zona:</span>
+                  <span class="summary-val" id="summaryZona">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Fecha:</span>
+                  <span class="summary-val" id="summaryFecha">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Horario:</span>
+                  <span class="summary-val" id="summaryHora">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Personas:</span>
+                  <span class="summary-val" id="summaryPersonas">—</span>
+                </div>
+              </div>
+
+              <button type="submit" id="btnConfirmBooking" class="btn-confirm-booking" disabled>
+                <span>Confirmar Reserva</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- PANTALLA DE COMPROBANTE DE CONFIRMACIÓN (RF-06) -->
+        <div id="voucherContainer" class="voucher-screen">
+          <div class="voucher-badge-check">✓</div>
+          <h2 class="voucher-title">¡Tu reserva está confirmada!</h2>
+          <p class="voucher-subtitle">Presenta este comprobante digital al llegar a Konys Pizza.</p>
+
+          <div class="voucher-ticket">
+            <div class="ticket-header">
+              <span style="font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em;">COMPROBANTE DE RESERVA</span>
+              <span id="voucherCode" class="ticket-code">#KP-2026-1017</span>
+            </div>
+            <div class="ticket-body">
+              <div class="ticket-grid">
+                <div>
+                  <div class="ticket-field-label">Titular</div>
+                  <div id="voucherClient" class="ticket-field-val">Juan Pérez</div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Mesa y Zona</div>
+                  <div id="voucherMesa" class="ticket-field-val">Mesa 3 (Salón)</div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Fecha</div>
+                  <div id="voucherFecha" class="ticket-field-val">Sábado, 17 Oct 2026</div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Horario (60 min)</div>
+                  <div id="voucherHora" class="ticket-field-val">5:30 p.m. – 6:30 p.m.</div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Comensales</div>
+                  <div id="voucherGuests" class="ticket-field-val">4 personas</div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Estado</div>
+                  <div class="ticket-field-val" style="color: var(--status-free-text);">🟢 Confirmada</div>
+                </div>
+              </div>
+            </div>
+            <div class="ticket-footer">
+              📍 Cra. 36 con calle 41, Cabecera, Bucaramanga · Por favor llega 10 minutos antes.
+            </div>
+          </div>
+
+          <div class="voucher-actions">
+            <button id="btnPrintVoucher" class="btn-secondary" onclick="window.print()">
+              🖨️ Imprimir / Guardar PDF
+            </button>
+            <button id="btnNewBooking" class="btn-primary">
+              Hacer otra reserva
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/supabase.js"></script>
+  <script src="js/cliente.js"></script>
+</body>
+</html>
