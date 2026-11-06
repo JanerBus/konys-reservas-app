@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración — Konys Pizza</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Supabase JS CDN (v2) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    /* Estilos específicos del panel de administración */
+    .admin-auth-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #0F2B3D 0%, #091C29 100%);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .auth-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+    .admin-tab-pane {
+      display: none;
+    }
+    .admin-tab-pane.active {
+      display: block;
+      animation: fadeInPane 0.25s ease;
+    }
+    @keyframes fadeInPane {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .action-btn-group {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-table-action {
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn-table-action:hover {
+      background: #F1F5F9;
+    }
+    .btn-table-action.delete:hover {
+      background: var(--status-occupied-bg);
+      color: var(--status-occupied-text);
+      border-color: var(--status-occupied-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =======================================================================
+       PANTALLA DE AUTENTICACIÓN / ACCESO ADMINISTRADOR (RF-08, RNF-05)
+       ======================================================================= -->
+  <div id="adminAuthOverlay" class="admin-auth-overlay">
+    <div class="auth-card">
+      <div class="brand-badge" style="width: 52px; height: 52px; font-size: 1.5rem; margin: 0 auto 16px;">K</div>
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 6px;">Acceso Administrativo</h2>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">
+        Ingresa la clave de seguridad para gestionar mesas, horarios, reservas y carta digital.
+      </p>
+
+      <form id="adminLoginForm" onsubmit="return false;">
+        <div class="form-group" style="text-align: left;">
+          <label for="adminPassInput" class="form-label">Contraseña de Administrador</label>
+          <input 
+            type="password" 
+            id="adminPassInput" 
+            class="form-input" 
+            placeholder="Introduce la contraseña (defecto: admin123)" 
+            required 
+            autocomplete="current-password"
+          />
+          <div class="form-hint">Clave sugerida del proyecto: <code>admin123</code></div>
+        </div>
+
+        <button type="submit" id="btnAdminLogin" class="btn-confirm-booking" style="margin-top: 10px;">
+          Ingresar al Panel
+        </button>
+
+        <div style="margin-top: 20px;">
+          <a href="index.html" style="color: var(--text-muted); font-size: 0.85rem; text-decoration: underline;">
+            ← Volver a la vista del cliente
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       LAYOUT PRINCIPAL DEL PANEL ADMINISTRADOR (RF-08 a RF-14)
+       ======================================================================= -->
+  <div class="admin-layout" id="adminMainLayout">
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <div class="brand-badge">K</div>
+        <div>
+          <div style="font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em;">KONYS PIZZA</div>
+          <div style="font-size: 0.72rem; color: #94A3B8;">Panel de Control · Bucaramanga</div>
+        </div>
+      </div>
+
+      <!-- Estado de Almacenamiento -->
+      <div style="background: rgba(255,255,255,0.06); padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 18px; font-size: 0.8rem;">
+        <div style="color: #94A3B8; font-size: 0.72rem; text-transform: uppercase; font-weight: 700; margin-bottom: 4px;">Modo de Datos</div>
+        <div id="storageModeBadge" style="color: #4ADE80; font-weight: 700; display: flex; align-items: center; gap: 6px;">
+          🟢 LocalStorage (Demo)
+        </div>
+      </div>
+
+      <!-- Menú de Navegación del Panel -->
+      <nav class="admin-nav" role="tablist">
+        <button class="admin-nav-item active" data-tab="tab-reservas">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Reservas
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-mesas">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18v3"></path><path d="M20 18v3"></path><path d="M4 14h16"></path><path d="M4 10h16"></path><path d="M7 6h10"></path></svg>
+          Mesas
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-horarios">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Horarios
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-carta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          Carta Digital
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-config">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Supabase & Config
+        </button>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <a href="index.html" class="btn-secondary" style="width: 100%; justify-content: center; margin-bottom: 8px; font-size: 0.85rem; background: rgba(255,255,255,0.08); color: #FFFFFF; border-color: transparent;">
+          🌐 Ver App Cliente
+        </a>
+        <button id="btnAdminLogout" class="btn-secondary" style="width: 100%; justify-content: center; font-size: 0.85rem; color: #FCA5A5; background: rgba(239,68,68,0.1); border-color: transparent;">
+          🚪 Cerrar Sesión
+        </button>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL DE CONTENIDO -->
+    <main class="admin-main">
+      <!-- TOPBAR -->
+      <div class="admin-topbar">
+        <div>
+          <h1 id="tabTitle" style="font-size: 1.8rem; font-weight: 800;">Gestión de Reservas</h1>
+          <p id="tabDesc" style="color: var(--text-muted); font-size: 0.9rem;">
+            Supervisa, filtra y confirma las reservas en tiempo real.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button id="btnRefreshData" class="btn-secondary" title="Recargar datos">
+            🔄 Actualizar
+          </button>
+        </div>
+      </div>
+
+      <!-- KPIs INFORMATIVOS -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon">📅</div>
+          <div>
+            <div class="kpi-val" id="kpiReservasHoy">0</div>
+            <div class="kpi-title">Reservas Hoy</div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon">🍽️</div>
+          <div>
+            <div class="kpi-val" id="kpiMesasActivas">0</div>
+            <div class="kpi-title">Mesas Operativas</div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon">🍕</div>
+          <div>
+            <div class="kpi-val" id="kpiPlatosCarta">0</div>
+            <div class="kpi-title">Platos en Carta</div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon">👥</div>
+          <div>
+            <div class="kpi-val" id="kpiCapacidadTotal">0</div>
+            <div class="kpi-title">Capacidad Total (Personas)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           PESTAÑA 1: GESTIÓN DE RESERVAS (RF-12)
+           ===================================================================== -->
+      <section id="tab-reservas" class="admin-tab-pane active">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <!-- Barra de Filtros -->
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 2px;">FECHA</label>
+                <input type="date" id="filterReservaFecha" class="form-input" style="padding: 6px 10px; font-size: 0.85rem;" />
+              </div>
+
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 2px;">MESA</label>
+                <select id="filterReservaMesa" class="form-select" style="padding: 6px 10px; font-size: 0.85rem;">
+                  <option value="">Todas las mesas</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 2px;">ESTADO</label>
+                <select id="filterReservaEstado" class="form-select" style="padding: 6px 10px; font-size: 0.85rem;">
+                  <option value="">Todos los estados</option>
+                  <option value="confirmada">Confirmada</option>
+                  <option value="cancelada">Cancelada</option>
+                  <option value="completada">Completada</option>
+                </select>
+              </div>
+
+              <div style="margin-top: 18px;">
+                <button id="btnClearFilters" class="btn-table-action" style="padding: 8px 12px;">Limpiar filtros</button>
+              </div>
+            </div>
+
+            <div style="margin-top: 10px;">
+              <button id="btnNewManualBooking" class="btn-primary" style="font-size: 0.85rem; padding: 8px 16px;">
+                + Registrar Reserva Manual
+              </button>
+            </div>
+          </div>
+
+          <!-- Tabla de Reservas -->
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Cliente</th>
+                  <th>Mesa / Zona</th>
+                  <th>Fecha</th>
+                  <th>Horario</th>
+                  <th>Personas</th>
+                  <th>Contacto</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="reservasTableBody">
+                <!-- Generado por admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PESTAÑA 2: GESTIÓN DE MESAS (RF-09, RF-10, RF-13)
+           ===================================================================== -->
+      <section id="tab-mesas" class="admin-tab-pane">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700;">Mesas del Restaurante</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                Activa o desactiva mesas por mantenimiento o eventos privados.
+              </p>
+            </div>
+            <button id="btnOpenModalMesa" class="btn-primary" style="font-size: 0.85rem; padding: 8px 16px;">
+              + Nueva Mesa
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Zona</th>
+                  <th>Capacidad</th>
+                  <th>Estado Operativo (RF-13)</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="mesasTableBody">
+                <!-- Generado por admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PESTAÑA 3: GESTIÓN DE HORARIOS (RF-11)
+           ===================================================================== -->
+      <section id="tab-horarios" class="admin-tab-pane">
+        <div class="admin-card" style="max-width: 800px;">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700;">Configuración de Jornadas y Slots (RF-11)</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                Define las franjas de atención y la duración de cada reserva en minutos.
+              </p>
+            </div>
+          </div>
+
+          <div style="padding: 24px;">
+            <form id="horariosForm" onsubmit="return false;">
+              <!-- Almuerzo -->
+              <div style="border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; margin-bottom: 20px;">
+                <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                  ☀️ Jornada Almuerzo
+                </h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label class="form-label">Hora Inicio</label>
+                    <input type="text" id="almuerzoInicio" class="form-input" value="12:30" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Hora Cierre</label>
+                    <input type="text" id="almuerzoFin" class="form-input" value="14:30" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Duración Slot (min)</label>
+                    <input type="number" id="almuerzoSlot" class="form-input" value="60" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Noche -->
+              <div style="border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; margin-bottom: 24px;">
+                <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                  🌙 Jornada Noche
+                </h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label class="form-label">Hora Inicio</label>
+                    <input type="text" id="nocheInicio" class="form-input" value="17:00" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Hora Cierre</label>
+                    <input type="text" id="nocheFin" class="form-input" value="23:00" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Duración Slot (min)</label>
+                    <input type="number" id="nocheSlot" class="form-input" value="60" />
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" id="btnGuardarHorarios" class="btn-primary">
+                Guardar Configuración de Horarios
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PESTAÑA 4: GESTIÓN DE CARTA DIGITAL (RF-14)
+           ===================================================================== -->
+      <section id="tab-carta" class="admin-tab-pane">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700;">Catálogo de la Carta Digital</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                Agrega, edita o cambia la disponibilidad de platos y bebidas.
+              </p>
+            </div>
+            <button id="btnOpenModalPlato" class="btn-primary" style="font-size: 0.85rem; padding: 8px 16px;">
+              + Nuevo Plato
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Descripción</th>
+                  <th>Precio (COP)</th>
+                  <th>Disponible (RF-14)</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="platosTableBody">
+                <!-- Generado por admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PESTAÑA 5: SUPABASE & CONFIGURACIÓN
+           ===================================================================== -->
+      <section id="tab-config" class="admin-tab-pane">
+        <div class="admin-card" style="max-width: 800px;">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700;">Conexión a Base de Datos Supabase</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                Conecta tu proyecto con la nube o restablece los datos locales para demostración.
+              </p>
+            </div>
+          </div>
+
+          <div style="padding: 24px;">
+            <form id="supabaseConfigForm" onsubmit="return false;">
+              <div class="form-group">
+                <label for="sbUrlInput" class="form-label">Project URL de Supabase</label>
+                <input type="url" id="sbUrlInput" class="form-input" placeholder="https://xyzcompany.supabase.co" />
+                <div class="form-hint">Obtenla en: <i>Project Settings &gt; API &gt; Project URL</i></div>
+              </div>
+
+              <div class="form-group">
+                <label for="sbKeyInput" class="form-label">Anon / Public API Key</label>
+                <input type="password" id="sbKeyInput" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." />
+                <div class="form-hint">Obtenla en: <i>Project Settings &gt; API &gt; Project API keys &gt; anon public</i></div>
+              </div>
+
+              <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
+                <button type="submit" id="btnSaveSupabaseConfig" class="btn-primary">
+                  Guardar y Probar Conexión
+                </button>
+                <button type="button" id="btnUseLocalStorage" class="btn-secondary">
+                  Usar Modo Demo (LocalStorage)
+                </button>
+                <button type="button" id="btnResetAllData" class="btn-secondary" style="color: var(--status-occupied-text);">
+                  Restablecer Datos Semilla
+                </button>
+              </div>
+            </form>
+
+            <div style="margin-top: 32px; padding: 20px; background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-md);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px;">Script SQL de Instalación</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+                Para inicializar las tablas en tu cuenta de Supabase, copia el contenido de <code>sql/supabase-schema.sql</code> y pégalo en el <b>SQL Editor</b> de tu panel de Supabase.
+              </p>
+              <a href="sql/supabase-schema.sql" target="_blank" class="btn-table-action" style="display: inline-block;">
+                📄 Ver archivo sql/supabase-schema.sql
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- =======================================================================
+       MODAL: CREAR / EDITAR MESA (RF-09)
+       ======================================================================= -->
+  <div id="modalMesaAdmin" class="modal-overlay">
+    <div class="modal-card" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 id="modalMesaAdminTitle" class="modal-title">Nueva Mesa</h3>
+        <button id="btnCloseModalMesa" class="btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="formMesaAdmin" onsubmit="return false;">
+          <input type="hidden" id="editMesaId" />
+          <div class="form-group">
+            <label for="mesaNombreInput" class="form-label">Nombre de la mesa *</label>
+            <input type="text" id="mesaNombreInput" class="form-input" placeholder="Ej: Mesa 6" required />
+          </div>
+
+          <div class="form-group">
+            <label for="mesaZonaInput" class="form-label">Zona *</label>
+            <select id="mesaZonaInput" class="form-select" required>
+              <option value="terraza">Terraza</option>
+              <option value="salon">Salón</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mesaCapacidadInput" class="form-label">Capacidad de personas *</label>
+            <input type="number" id="mesaCapacidadInput" class="form-input" min="1" max="20" value="4" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" id="mesaActivaInput" checked />
+              <span>Mesa activa para recibir reservas</span>
+            </label>
+          </div>
+
+          <button type="submit" id="btnSaveMesa" class="btn-confirm-booking" style="margin-top: 10px;">
+            Guardar Mesa
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       MODAL: CREAR / EDITAR PLATO (RF-14)
+       ======================================================================= -->
+  <div id="modalPlatoAdmin" class="modal-overlay">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 id="modalPlatoAdminTitle" class="modal-title">Nuevo Plato</h3>
+        <button id="btnCloseModalPlato" class="btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="formPlatoAdmin" onsubmit="return false;">
+          <input type="hidden" id="editPlatoId" />
+          <div class="form-group">
+            <label for="platoNombreInput" class="form-label">Nombre del plato *</label>
+            <input type="text" id="platoNombreInput" class="form-input" placeholder="Ej: Pizza Peperoni Supreme" required />
+          </div>
+
+          <div class="form-group">
+            <label for="platoCategoriaInput" class="form-label">Categoría *</label>
+            <select id="platoCategoriaInput" class="form-select" required>
+              <option value="pizzas">Pizzas</option>
+              <option value="entradas">Entradas</option>
+              <option value="postres">Postres</option>
+              <option value="bebidas">Bebidas</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="platoDescInput" class="form-label">Descripción e ingredientes *</label>
+            <textarea id="platoDescInput" class="form-input" rows="3" placeholder="Ingredientes detallados..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="platoPrecioInput" class="form-label">Precio en COP *</label>
+            <input type="number" id="platoPrecioInput" class="form-input" min="0" step="500" placeholder="38000" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" id="platoDisponibleInput" checked />
+              <span>Visible y disponible en la Carta Digital</span>
+            </label>
+          </div>
+
+          <button type="submit" id="btnSavePlato" class="btn-confirm-booking" style="margin-top: 10px;">
+            Guardar Plato
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/supabase.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
