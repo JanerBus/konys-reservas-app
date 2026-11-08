@@ -12,11 +12,11 @@
   // CREDENCIALES DE SUPABASE CLOUD (PostgreSQL)
   // ============================================================================
   const CONFIG = {
-    // 1. Pega aquí tu Project URL de Supabase (ej: 'https://xxxx.supabase.co')
-    url: '',
+    // 1. Project URL de Supabase
+    url: 'https://psukwmpjzdzechbgkcaz.supabase.co',
 
-    // 2. Pega aquí tu Anon Public API Key (ej: 'eyJhbGciOiJIUzI1NiIsInR5cCI6...')
-    anonKey: '',
+    // 2. Anon Public API Key
+    anonKey: 'sb_publishable_qRPT1b3aKK7iCjN0pXgy0g_X1iUhDd1',
 
     storageKeyPrefix: 'konys_db_'
   };
