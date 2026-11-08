@@ -106,7 +106,7 @@ P3/
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/usuario/konys-reservas-app.git
+   git clone https://github.com/JanerBus/konys-reservas-app.git
    cd konys-reservas-app
    ```
 
