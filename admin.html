@@ -146,11 +146,6 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
           Carta Digital
         </button>
-
-        <button class="admin-nav-item" data-tab="tab-config">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-          Supabase & Config
-        </button>
       </nav>
 
       <div class="admin-sidebar-footer">
@@ -417,60 +412,6 @@
                 <!-- Generado por admin.js -->
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================================
-           PESTAÑA 5: SUPABASE & CONFIGURACIÓN
-           ===================================================================== -->
-      <section id="tab-config" class="admin-tab-pane">
-        <div class="admin-card" style="max-width: 800px;">
-          <div class="admin-card-header">
-            <div>
-              <h3 style="font-size: 1.15rem; font-weight: 700;">Conexión a Base de Datos Supabase</h3>
-              <p style="font-size: 0.82rem; color: var(--text-muted);">
-                Conecta tu proyecto con la nube o restablece los datos locales para demostración.
-              </p>
-            </div>
-          </div>
-
-          <div style="padding: 24px;">
-            <form id="supabaseConfigForm" onsubmit="return false;">
-              <div class="form-group">
-                <label for="sbUrlInput" class="form-label">Project URL de Supabase</label>
-                <input type="url" id="sbUrlInput" class="form-input" placeholder="https://xyzcompany.supabase.co" />
-                <div class="form-hint">Obtenla en: <i>Project Settings &gt; API &gt; Project URL</i></div>
-              </div>
-
-              <div class="form-group">
-                <label for="sbKeyInput" class="form-label">Anon / Public API Key</label>
-                <input type="password" id="sbKeyInput" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." />
-                <div class="form-hint">Obtenla en: <i>Project Settings &gt; API &gt; Project API keys &gt; anon public</i></div>
-              </div>
-
-              <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
-                <button type="submit" id="btnSaveSupabaseConfig" class="btn-primary">
-                  Guardar y Probar Conexión
-                </button>
-                <button type="button" id="btnUseLocalStorage" class="btn-secondary">
-                  Usar Modo Demo (LocalStorage)
-                </button>
-                <button type="button" id="btnResetAllData" class="btn-secondary" style="color: var(--status-occupied-text);">
-                  Restablecer Datos Semilla
-                </button>
-              </div>
-            </form>
-
-            <div style="margin-top: 32px; padding: 20px; background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-md);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px;">Script SQL de Instalación</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
-                Para inicializar las tablas en tu cuenta de Supabase, copia el contenido de <code>sql/supabase-schema.sql</code> y pégalo en el <b>SQL Editor</b> de tu panel de Supabase.
-              </p>
-              <a href="sql/supabase-schema.sql" target="_blank" class="btn-table-action" style="display: inline-block;">
-                📄 Ver archivo sql/supabase-schema.sql
-              </a>
-            </div>
           </div>
         </div>
       </section>

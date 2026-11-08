@@ -84,15 +84,7 @@
     platoCategoriaInput: document.getElementById('platoCategoriaInput'),
     platoDescInput: document.getElementById('platoDescInput'),
     platoPrecioInput: document.getElementById('platoPrecioInput'),
-    platoDisponibleInput: document.getElementById('platoDisponibleInput'),
-
-    // Supabase Config
-    supabaseConfigForm: document.getElementById('supabaseConfigForm'),
-    sbUrlInput: document.getElementById('sbUrlInput'),
-    sbKeyInput: document.getElementById('sbKeyInput'),
-    btnSaveSupabaseConfig: document.getElementById('btnSaveSupabaseConfig'),
-    btnUseLocalStorage: document.getElementById('btnUseLocalStorage'),
-    btnResetAllData: document.getElementById('btnResetAllData')
+    platoDisponibleInput: document.getElementById('platoDisponibleInput')
   };
 
   const TAB_INFOS = {
@@ -111,10 +103,6 @@
     'tab-carta': {
       title: 'Administración de Carta Digital',
       desc: 'Agrega, edita precios o cambia la visibilidad de los platos del restaurante.'
-    },
-    'tab-config': {
-      title: 'Configuración & Supabase Cloud',
-      desc: 'Administra las credenciales de conexión con la base de datos PostgreSQL en Supabase.'
     }
   };
 
@@ -219,11 +207,6 @@
     if (dom.btnOpenModalPlato) dom.btnOpenModalPlato.addEventListener('click', () => abrirModalPlato());
     if (dom.btnCloseModalPlato) dom.btnCloseModalPlato.addEventListener('click', cerrarModalPlato);
     if (dom.formPlatoAdmin) dom.formPlatoAdmin.addEventListener('submit', guardarPlato);
-
-    // Configuración Supabase
-    if (dom.supabaseConfigForm) dom.supabaseConfigForm.addEventListener('submit', guardarConfigSupabase);
-    if (dom.btnUseLocalStorage) dom.btnUseLocalStorage.addEventListener('click', usarLocalStorage);
-    if (dom.btnResetAllData) dom.btnResetAllData.addEventListener('click', restablecerTodo);
   }
 
   function cambiarPestana(tabId) {
@@ -272,7 +255,6 @@
       renderMesas();
       renderPlatos();
       cargarHorariosForm();
-      cargarConfigForm();
       actualizarBadgeModo();
     } catch (e) {
       console.error('Error cargando datos en Admin:', e);
@@ -696,45 +678,6 @@
       showToast('Error al eliminar plato', 'error');
     }
   };
-
-  // ============================================================================
-  // CONFIGURACIÓN DE SUPABASE & DEMO
-  // ============================================================================
-  function cargarConfigForm() {
-    const cfg = window.KonysDB.getConfig();
-    if (dom.sbUrlInput) dom.sbUrlInput.value = cfg.url || '';
-    if (dom.sbKeyInput) dom.sbKeyInput.value = cfg.anonKey || '';
-  }
-
-  async function guardarConfigSupabase() {
-    const url = dom.sbUrlInput.value.trim();
-    const key = dom.sbKeyInput.value.trim();
-
-    if (!url || !key) {
-      showToast('Ingresa tanto el URL como la Anon Key de Supabase', 'warning');
-      return;
-    }
-
-    window.KonysDB.setConfig(url, key);
-    showToast('Credenciales guardadas. Comprobando conexión...', 'info');
-    await cargarTodo();
-  }
-
-  function usarLocalStorage() {
-    window.KonysDB.setConfig('', '');
-    dom.sbUrlInput.value = '';
-    dom.sbKeyInput.value = '';
-    showToast('Modo LocalStorage (Demo) activado', 'success');
-    actualizarBadgeModo();
-    cargarTodo();
-  }
-
-  function restablecerTodo() {
-    if (!confirm('¿Restablecer todas las tablas al estado semilla original? Se reiniciarán reservas y platos.')) return;
-    window.KonysDB.resetDemoData();
-    showToast('Almacenamiento local reiniciado con datos de fábrica', 'success');
-    cargarTodo();
-  }
 
   // ============================================================================
   // UTILIDADES

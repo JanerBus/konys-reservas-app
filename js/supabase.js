@@ -8,11 +8,16 @@
 (function (window) {
   'use strict';
 
-  // Configuración de credenciales de Supabase
-  // Puedes reemplazarlas aquí o configurarlas dinámicamente desde el panel Admin
+  // ============================================================================
+  // CREDENCIALES DE SUPABASE CLOUD (PostgreSQL)
+  // ============================================================================
   const CONFIG = {
-    url: localStorage.getItem('konys_supabase_url') || '',
-    anonKey: localStorage.getItem('konys_supabase_anon_key') || '',
+    // 1. Pega aquí tu Project URL de Supabase (ej: 'https://xxxx.supabase.co')
+    url: '',
+
+    // 2. Pega aquí tu Anon Public API Key (ej: 'eyJhbGciOiJIUzI1NiIsInR5cCI6...')
+    anonKey: '',
+
     storageKeyPrefix: 'konys_db_'
   };
 
