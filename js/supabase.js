@@ -52,8 +52,9 @@
       { id: 'mesa-5', nombre: 'Mesa 5', zona: 'salon', capacidad: 8, activa: true, creado_en: new Date().toISOString() }
     ],
     horarios: [
-      { id: 'horario-almuerzo', dia_semana: 'todos', jornada: 'almuerzo', hora_inicio: '12:30', hora_fin: '14:30', duracion_slot: 60, activo: true },
-      { id: 'horario-noche', dia_semana: 'todos', jornada: 'noche', hora_inicio: '17:00', hora_fin: '23:00', duracion_slot: 60, activo: true }
+      { id: 'horario-almuerzo', dia_semana: 'todos', jornada: 'almuerzo', hora_inicio: '12:00', hora_fin: '14:30', duracion_slot: 60, activo: true },
+      { id: 'horario-noche-semana', dia_semana: 'lunes-viernes', jornada: 'noche', hora_inicio: '17:00', hora_fin: '22:30', duracion_slot: 60, activo: true },
+      { id: 'horario-noche-finde', dia_semana: 'sabado-domingo', jornada: 'noche', hora_inicio: '17:00', hora_fin: '23:00', duracion_slot: 60, activo: true }
     ],
     reservas: [
       {
@@ -82,16 +83,31 @@
       }
     ],
     platos: [
-      { id: 'plato-1', nombre: 'Pizza Konys Especial', categoria: 'pizzas', descripcion: 'Queso mozzarella, pepperoni artesanal, tocineta ahumada, maíz tierno y pimentón asado.', precio: 38000, disponible: true },
-      { id: 'plato-2', nombre: 'Pizza Santandereana', categoria: 'pizzas', descripcion: 'Carne oreada desmechada, chorizo artesanal, plátano maduro dulce y queso doble crema.', precio: 42000, disponible: true },
-      { id: 'plato-3', nombre: 'Pizza Cuatro Quesos & Miel', categoria: 'pizzas', descripcion: 'Mozzarella, provolone, gorgonzola, parmesano reggiano y un toque sutil de miel de abejas.', precio: 40000, disponible: true },
-      { id: 'plato-4', nombre: 'Pan de Ajo Gratinado', categoria: 'entradas', descripcion: 'Baguette rústica horneada a la leña con mantequilla de ajo, finas hierbas y queso parmesano.', precio: 16500, disponible: true },
-      { id: 'plato-5', nombre: 'Burrata sobre Focaccia', categoria: 'entradas', descripcion: 'Queso burrata fresco con tomates cherry confitados, pesto de albahaca y focaccia caliente.', precio: 26000, disponible: true },
-      { id: 'plato-6', nombre: 'Volcán de Arequipe Santandereano', categoria: 'postres', descripcion: 'Bizcocho tibio relleno de dulce de leche artesanal, acompañado de helado de vainilla.', precio: 15000, disponible: true },
-      { id: 'plato-7', nombre: 'Cheesecake de Frutos Rojos', categoria: 'postres', descripcion: 'Base crocante de galleta con crema de queso suave y reducción artesanal de moras y agraz.', precio: 14000, disponible: true },
-      { id: 'plato-8', nombre: 'Limonada Cerezada Natural', categoria: 'bebidas', descripcion: 'Limón Tahití recién exprimido, cerezas en almíbar y hielo frappé de 16 oz.', precio: 11000, disponible: true },
-      { id: 'plato-9', nombre: 'Soda Frutos Amarillos', categoria: 'bebidas', descripcion: 'Soda saborizada con maracuyá, mango, flor de jamaica y menta fresca.', precio: 12500, disponible: true },
-      { id: 'plato-10', nombre: 'Cerveza Artesanal Santandereana', categoria: 'bebidas', descripcion: 'Cerveza rubia de origen local con notas cítricas y maltas tostadas (330 ml).', precio: 13500, disponible: true }
+      { id: 'plato-bukara', nombre: 'BUKARA ⭐💚 (Ganadora Pizza Master)', categoria: 'pizzas', descripcion: 'Homenaje a la Ciudad Bonita: trozos de jugosa carne de hamburguesa, mermelada de tocineta ahumada en reducción de miel y panela, sobre nuestra exquisita salsa napolitana.', precio: 28900, disponible: true },
+      { id: 'plato-dulcinea', nombre: 'KONYS DULCINEA (Conopizza de Temporada)', categoria: 'pizzas', descripcion: 'Pollo marinado al horno, mozzarella argentino, cremoso de tocineta caramelizada con queso crema Kraft, nacho artesanal y lluvia de parmesano. Acompañado de papitas al horno.', precio: 28900, disponible: true },
+      { id: 'plato-colombianisima', nombre: 'Colombianísima (Pizza Master 2022)', categoria: 'pizzas', descripcion: 'Jugosa carne desmechada, dulces maduritos fritos y maicitos frescos, coronados con un trozo de arepa de maíz santandereana.', precio: 28900, disponible: true },
+      { id: 'plato-hawaiana', nombre: 'Pizza Hawaiana Clásica', categoria: 'pizzas', descripcion: 'La combinación perfecta de tocineta y jamón ahumados con piña OroMiel caramelizada y queso mozzarella fundido.', precio: 27900, disponible: true },
+      { id: 'plato-mexicana', nombre: 'Pizza Mexicana Tex-Mex', categoria: 'pizzas', descripcion: 'Carne molida sazonada, maíz tierno, pimentón, cebolla caramelizada, crujientes nachos y un toque especial de picante Tex-Mex.', precio: 27900, disponible: true },
+      { id: 'plato-pepperoni', nombre: 'Carnes - Auténtica Pepperoni', categoria: 'pizzas', descripcion: 'Pepperoni picante artesanal, cábano tradicional y jamón ahumado, la combinación favorita de los amantes de la carne.', precio: 27900, disponible: true },
+      { id: 'plato-especial', nombre: 'Pizza Konys Especial', categoria: 'pizzas', descripcion: 'Pollo marinado al horno, tocineta ahumada crocante y champiñones frescos en salsa napolitana de la casa.', precio: 27900, disponible: true },
+      { id: 'plato-carbonara', nombre: 'Pizza Carbonara', categoria: 'pizzas', descripcion: 'Tocineta ahumada, jamón seleccionado, maíz dulce y queso parmesano gratinado sobre una base de cremosa salsa blanca.', precio: 27900, disponible: true },
+      { id: 'plato-italianisima', nombre: 'Pizza Italianísima', categoria: 'pizzas', descripcion: 'Jamón serrano madurado, tomates asados al horno, pesto artesanal de albahaca fresca y queso parmesano.', precio: 28900, disponible: true },
+      { id: 'plato-bondiola', nombre: 'Pizza Bondiola Premium', categoria: 'pizzas', descripcion: 'Corte premium de bondiola de cerdo ahumada, champiñones frescos y queso parmesano sobre salsa napolitana.', precio: 28900, disponible: true },
+      { id: 'plato-lasana', nombre: 'Lasaña al Horno Konys', categoria: 'pizzas', descripcion: 'Capas de pasta artesanal con carne molida sazonada, tocineta ahumada, bechamel y queso parmesano gratinado, servida con papas al horno sin aceite.', precio: 31800, disponible: true },
+      { id: 'plato-desgranado', nombre: 'Desgranado de Carne al Horno', categoria: 'pizzas', descripcion: 'Servido en Kono crocante, relleno de mazorca bogotana salteada con carne desmechada, chorizo santarosano, salsita Konys y mozzarella.', precio: 38500, disponible: true },
+      { id: 'plato-mini-konitos', nombre: 'Entrada Mini Konitos (x5)', categoria: 'entradas', descripcion: 'Cinco (5) mini conos Konys rellenos de queso gratinado fundido, salsa napolitana y sabor a elegir (Hawaiano, Pepperoni o Queso).', precio: 15000, disponible: true },
+      { id: 'plato-nachos', nombre: 'Nachos Enchulados para Compartir', categoria: 'entradas', descripcion: 'Nachos crujientes con queso costeño rallado, salsa tártara de la casa y piña caramelizada.', precio: 16000, disponible: true },
+      { id: 'plato-papas-locas', nombre: 'Papas Locas - Fries Ikónicas', categoria: 'entradas', descripcion: 'Únicas papas fritas al horno sin aceite de la ciudad, cubiertas con chorizo santarosano, salchicha llanera, carne de hamburguesa, maicitos, tártara y queso rallado.', precio: 39000, disponible: true },
+      { id: 'plato-chicken-fries', nombre: 'Chicken Fries Mini', categoria: 'entradas', descripcion: 'Papas al horno sin aceite, nuggets de pollo hechos en casa, bañadas en mozzarella derretido y salsas tártara y piña.', precio: 18000, disponible: true },
+      { id: 'plato-maracumango', nombre: 'Granizado MaracuMango', categoria: 'bebidas', descripcion: 'Bebida frappé refrescante elaborada con pulpa 100% natural de maracuyá y mango maduro.', precio: 9900, disponible: true },
+      { id: 'plato-cerezada', nombre: 'Granizado Cerezada Natural', categoria: 'bebidas', descripcion: 'Limonada natural en frappé con cerezas en almíbar y el balance dulce-ácido característico de Konys.', precio: 9900, disponible: true },
+      { id: 'plato-limonada-coco', nombre: 'Limonada de Coco Frappé', categoria: 'bebidas', descripcion: 'Cremosa limonada frappé elaborada con leche de coco natural y hielo finamente granizado.', precio: 11000, disponible: true },
+      { id: 'plato-soda-lulo', nombre: 'Soda Lulo Fizz', categoria: 'bebidas', descripcion: 'Mermelada de lulo natural, zumo de limón, soda, perlas explosivas de maracuyá y ginger ale macerado.', precio: 12900, disponible: true },
+      { id: 'plato-soda-rojos', nombre: 'Soda Frutos Rojos con Perlas', categoria: 'bebidas', descripcion: 'Sirope natural de frutos rojos, fresa picada, limón, soda y perlas explosivas de cereza.', precio: 12900, disponible: true },
+      { id: 'plato-cerveza-club', nombre: 'Cerveza Club Colombia Dorada', categoria: 'bebidas', descripcion: 'Cerveza dorada prémium tipo lager (330 ml).', precio: 7000, disponible: true },
+      { id: 'plato-cerveza-corona', nombre: 'Cerveza Corona Extra', categoria: 'bebidas', descripcion: 'Cerveza rubia mexicana servida bien fría con rodaja de limón (330 ml).', precio: 9500, disponible: true },
+      { id: 'plato-copa-ikonica', nombre: 'Copa de Helado Ikónica', categoria: 'postres', descripcion: 'Doble bola de helado cookies and cream con fresas frescas picadas, leche condensada, salsa de chocolate y maní tostado.', precio: 7500, disponible: true },
+      { id: 'plato-copa-clasica', nombre: 'Copa de Helado Clásica', categoria: 'postres', descripcion: 'Helado artesanal de cookies and cream con salsa de chocolate caliente y lluvia de maní.', precio: 4900, disponible: true }
     ]
   };
 

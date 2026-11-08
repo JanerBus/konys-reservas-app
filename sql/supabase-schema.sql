@@ -93,10 +93,11 @@ INSERT INTO public.mesas (id, nombre, zona, capacidad, activa) VALUES
 ('mesa-5', 'Mesa 5', 'salon', 8, true)
 ON CONFLICT (id) DO NOTHING;
 
--- Franjas de atención: Almuerzo (12:30 a 14:30) y Noche (17:00 a 23:00)
+-- Franjas de atención: Almuerzo (12:00 a 14:30) y Noche (17:00 a 22:30 Lun-Vie / 23:00 Sáb-Dom)
 INSERT INTO public.horarios (id, dia_semana, jornada, hora_inicio, hora_fin, duracion_slot, activo) VALUES
-('horario-almuerzo', 'todos', 'almuerzo', '12:30', '14:30', 60, true),
-('horario-noche', 'todos', 'noche', '17:00', '23:00', 60, true)
+('horario-almuerzo', 'todos', 'almuerzo', '12:00', '14:30', 60, true),
+('horario-noche-semana', 'lunes-viernes', 'noche', '17:00', '22:30', 60, true),
+('horario-noche-finde', 'sabado-domingo', 'noche', '17:00', '23:00', 60, true)
 ON CONFLICT (id) DO NOTHING;
 
 -- Platos icónicos de la Carta Digital Konys Pizza

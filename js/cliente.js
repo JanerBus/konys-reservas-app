@@ -23,10 +23,17 @@
     reservasDelDia: []
   };
 
-  // Franjas horarias estándar según horarios de Konys Pizza (Sección 11 y 12)
-  const DEFAULT_SLOTS = {
-    almuerzo: ['12:30', '13:00', '13:30', '14:00'],
-    noche: [
+  // Franjas horarias oficiales de Konys Pizza
+  // Lun a Vier: 12:00 md a 2:30 pm y 5:00 pm a 10:30 pm
+  // Sáb y Dom: 12:00 md a 2:30 pm y 5:00 pm a 11:00 pm
+  const SLOTS_CONFIG = {
+    almuerzo: ['12:00', '12:30', '13:00', '13:30'],
+    noche_semana: [
+      '17:00', '17:30', '18:00', '18:30',
+      '19:00', '19:30', '20:00', '20:30',
+      '21:00', '21:30'
+    ],
+    noche_fin_semana: [
       '17:00', '17:30', '18:00', '18:30',
       '19:00', '19:30', '20:00', '20:30',
       '21:00', '21:30', '22:00'
@@ -437,9 +444,27 @@
   function renderSlotsGrid() {
     const horasOcupadas = new Set(state.reservasDelDia.map(r => r.hora_inicio));
 
-    // 1. Jornada Almuerzo
+    // Determinar si la fecha seleccionada es fin de semana (Sábado = 6, Domingo = 0)
+    let esFinde = false;
+    if (state.fechaSeleccionada) {
+      const partes = state.fechaSeleccionada.split('-').map(Number);
+      const fechaObj = new Date(partes[0], partes[1] - 1, partes[2]);
+      const dia = fechaObj.getDay();
+      esFinde = (dia === 0 || dia === 6);
+    }
+
+    const dinnerShiftLabel = document.getElementById('dinnerShiftLabel');
+    if (dinnerShiftLabel) {
+      dinnerShiftLabel.textContent = esFinde
+        ? '🌙 Jornada Noche (5:00 p.m. – 11:00 p.m.)'
+        : '🌙 Jornada Noche (5:00 p.m. – 10:30 p.m.)';
+    }
+
+    const nightSlots = esFinde ? SLOTS_CONFIG.noche_fin_semana : SLOTS_CONFIG.noche_semana;
+
+    // 1. Jornada Almuerzo (12:00 md a 2:30 pm)
     if (dom.lunchSlotsGrid) {
-      dom.lunchSlotsGrid.innerHTML = DEFAULT_SLOTS.almuerzo.map(slot => {
+      dom.lunchSlotsGrid.innerHTML = SLOTS_CONFIG.almuerzo.map(slot => {
         const ocupado = horasOcupadas.has(slot);
         const seleccionado = state.slotSeleccionado === slot;
         return `
@@ -457,7 +482,7 @@
 
     // 2. Jornada Noche
     if (dom.dinnerSlotsGrid) {
-      dom.dinnerSlotsGrid.innerHTML = DEFAULT_SLOTS.noche.map(slot => {
+      dom.dinnerSlotsGrid.innerHTML = nightSlots.map(slot => {
         const ocupado = horasOcupadas.has(slot);
         const seleccionado = state.slotSeleccionado === slot;
         return `

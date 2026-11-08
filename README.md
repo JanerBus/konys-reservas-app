@@ -1,16 +1,21 @@
 # 🍕 Konys Pizza — Sistema de Reservas de Mesas
 
 > **«La pizza más icónica de la ciudad»**  
-> Cra. 36 con calle 41, Bucaramanga, Santander  
+> Cra. 36 con calle 41 esquina / Barrio El Prado, Bucaramanga, Santander  
 > Aplicación web integral para la digitalización y gestión de reservas de mesas y consulta de carta digital.
+> 
+> 🌐 **Menú Oficial:** [soyclubify.com/d/konys](https://soyclubify.com/d/konys)  
+> 📸 **Instagram:** [@konys_pizza](https://www.instagram.com/konys_pizza/)
 
 ---
 
 ## 📌 1. Descripción del Proyecto
 
-**Konys Pizza** es una destacada pizzería en Bucaramanga con más de 34.900 seguidores en redes sociales y atención en dos jornadas diarias:
-- **Almuerzo:** 12:30 p.m. – 2:30 p.m.
-- **Noche:** 5:00 p.m. – 11:00 p.m.
+**Konys Pizza** es una destacada pizzería en Bucaramanga (Barrio El Prado) con más de 34.900 seguidores en redes sociales y atención en las siguientes jornadas:
+- **Almuerzo (Todos los días):** 12:00 m. – 2:30 p.m.
+- **Noche:**
+  - **Lunes a Viernes:** 5:00 p.m. – 10:30 p.m.
+  - **Sábado y Domingo:** 5:00 p.m. – 11:00 p.m.
 
 Históricamente, la gestión de reservas se realizaba de manera manual por WhatsApp o llamadas telefónicas, generando retrasos, desorden y riesgos de doble reserva. Esta solución web digitaliza el proceso de principio a fin:
 1. **Módulo Cliente:** Permite a los clientes consultar en tiempo real las mesas activas (zonas Terraza y Salón), elegir fecha y hora en slots de 60 minutos, reservar en menos de 3 pasos sin necesidad de registro previo y consultar la Carta Digital.
