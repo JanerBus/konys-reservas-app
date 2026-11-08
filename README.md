@@ -50,7 +50,6 @@ P3/
 ├── sql/
 │   └── supabase-schema.sql     # Script SQL para crear tablas y políticas en Supabase
 └── docs/
-    ├── documento_30_paginas.pdf# Documento de especificación de requisitos y guía
     └── mockups/                # Mockups y wireframes (Baja y Alta Fidelidad)
         ├── alta-fidelidad/     # Exportables PNG en alta resolución
         ├── baja-fidelidad/     # Wireframes en escala de grises

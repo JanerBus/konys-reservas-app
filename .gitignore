@@ -22,3 +22,7 @@ desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+# Documentos PDF locales
+*.pdf
+
