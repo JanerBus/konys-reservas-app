@@ -4,6 +4,8 @@
 > Cra. 36 con calle 41 esquina / Barrio El Prado, Bucaramanga, Santander  
 > Aplicación web integral para la digitalización y gestión de reservas de mesas y consulta de carta digital.
 > 
+> 🚀 **Aplicación en Producción (Vercel):** [konys-reservas-app-gamma.vercel.app](https://konys-reservas-app-gamma.vercel.app/)  
+> 🔐 **Panel de Administración:** [konys-reservas-app-gamma.vercel.app/admin](https://konys-reservas-app-gamma.vercel.app/admin) *(Clave: dmin123)*  
 > 🌐 **Menú Oficial:** [soyclubify.com/d/konys](https://soyclubify.com/d/konys)  
 > 📸 **Instagram:** [@konys_pizza](https://www.instagram.com/konys_pizza/)
 
