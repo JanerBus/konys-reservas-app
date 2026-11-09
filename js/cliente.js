@@ -87,6 +87,7 @@
     voucherFecha: document.getElementById('voucherFecha'),
     voucherHora: document.getElementById('voucherHora'),
     voucherGuests: document.getElementById('voucherGuests'),
+    btnPrintVoucher: document.getElementById('btnPrintVoucher'),
     btnNewBooking: document.getElementById('btnNewBooking')
   };
 
@@ -163,6 +164,14 @@
     // Botón confirmar reserva
     if (dom.btnConfirmBooking) {
       dom.btnConfirmBooking.addEventListener('click', procesarReserva);
+    }
+
+    // Botón imprimir / guardar comprobante PDF
+    if (dom.btnPrintVoucher) {
+      dom.btnPrintVoucher.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.imprimirComprobante();
+      });
     }
 
     // Botón hacer otra reserva desde el comprobante
