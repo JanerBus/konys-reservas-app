@@ -628,6 +628,25 @@
     }
   }
 
+  // Manejo optimizado para impresión de comprobante / guardar PDF en 1 sola página limpia
+  window.imprimirComprobante = function () {
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'visible';
+
+    const restaurar = () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('afterprint', restaurar);
+    };
+
+    window.addEventListener('afterprint', restaurar);
+    window.print();
+
+    // Fallback de restauración por si el navegador no dispara afterprint
+    setTimeout(() => {
+      document.body.style.overflow = prevOverflow;
+    }, 1200);
+  };
+
   // ============================================================================
   // UTILIDADES
   // ============================================================================
