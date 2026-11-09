@@ -1,0 +1,81 @@
+================================================================================
+                    ENTREGA FINAL DE PROYECTO ACADÉMICO (P3)
+                  INGENIERÍA DE SOFTWARE / PROGRAMACIÓN WEB
+        SISTEMA DE RESERVAS DE MESAS Y CARTA DIGITAL — KONYS PIZZA
+================================================================================
+
+INFORMACIÓN GENERAL:
+--------------------------------------------------------------------------------
+- Estudiante:            Janer Bustillo
+- Docente:               Carlos Carrascal
+- Asignatura:            Ingeniería de Software / Programación Web
+- Proyecto / Caso Real:  Konys Pizza Bucaramanga
+- Sede:                  Cra. 36 con Calle 41 esquina, Barrio El Prado
+- Horarios de Atención:  Almuerzo: 12:00 m. a 2:30 p.m. (Todos los días)
+                         Noche:    5:00 p.m. a 10:30 p.m. (Lun a Vie)
+                                   5:00 p.m. a 11:00 p.m. (Sáb y Dom)
+- Menú Oficial:          https://soyclubify.com/d/konys
+- Instagram Oficial:     https://www.instagram.com/konys_pizza/
+
+================================================================================
+                       LISTA DE ENTREGABLES OFICIALES
+================================================================================
+
+1. APLICACIÓN WEB EN PRODUCCIÓN (DESPLIEGUE CONTINUO EN VERCEL):
+   -----------------------------------------------------------------------------
+   - URL Pública Cliente:      https://konys-reservas-app-gamma.vercel.app/
+   - URL Panel Administración: https://konys-reservas-app-gamma.vercel.app/admin
+   - Plataforma de Hosting:    Vercel (CI/CD conectado a la rama main de GitHub)
+   - Certificado SSL:          HTTPS activo, seguro y con cabeceras HTTP de protección.
+
+2. REPOSITORIO DE CÓDIGO FUENTE (GITHUB):
+   -----------------------------------------------------------------------------
+   - Enlace al Repositorio:    https://github.com/JanerBus/konys-reservas-app
+   - Rama Principal:           main
+   - Trazabilidad Git:         Historial ordenado de commits semánticos (feat, fix, docs).
+   - Estructura Modular:       /css, /js, /sql, /docs/mockups, vercel.json, README.md.
+
+3. VIDEO DEMOSTRATIVO Y EXPLICATIVO (5 A 8 MINUTOS):
+   -----------------------------------------------------------------------------
+   - Enlace al Video (YouTube): https://youtu.be/FeqFF1nZ1gs
+   - Contenido del Video:       Demostración de la problemática, mockups UI/UX,
+                                flujo completo de reservas del cliente,
+                                comprobante digital, panel administrativo privado,
+                                arquitectura JAMstack + Supabase y trazabilidad Git.
+
+4. MOCKUPS Y DISEÑO DE INTERFAZ (UI / UX):
+   -----------------------------------------------------------------------------
+   - Ubicación en Repositorio: docs/mockups/
+   - Formatos Disponibles:
+     * SVG Vectoriales (Figma): docs/mockups/figma-svg/ (importables y editables)
+     * Renders Alta Resolución: docs/mockups/alta-fidelidad/ (PNG)
+     * Wireframes Baja Fidelidad: docs/mockups/baja-fidelidad/ (PNG)
+     * Visor Interactivo Web:   docs/mockups/index.html (o ruta /mockups en Vercel)
+
+================================================================================
+                    CREDENCIALES Y ACCESOS DE PRUEBA
+================================================================================
+- Módulo Cliente:              Acceso libre y directo sin registro previo.
+- Módulo Administrador:        https://konys-reservas-app-gamma.vercel.app/admin
+                               (o clic en "Admin" en el encabezado superior)
+- Contraseña de Administrador: admin123
+- Base de Datos en Producción: Supabase Cloud (PostgreSQL)
+                               Host: psukwmpjzdzechbgkcaz.supabase.co
+                               (Con fallback automático local a LocalStorage)
+
+================================================================================
+                    RESUMEN TÉCNICO Y REQUISITOS CUMPLIDOS
+================================================================================
+- Arquitectura:          JAMstack (HTML5 Semántico + CSS3 Moderno + JavaScript Vanilla).
+- Cumplimiento Visual:   Tokens oficiales (#0F2B3D Navy, #F28C28 Naranja, #F8FAFC Fondo).
+- Accesibilidad:         Estándares WCAG 2.1 AA (contraste tipográfico > 4.5:1, ARIA y foco).
+- Reglas de Negocio:     Reservas en 3 pasos con cálculo dinámico de franjas de 60 min.
+- Prevención de Doble Reserva:
+  1. Algoritmo de detección de solapamiento de intervalos en frontend y capa de datos
+     (InicioA < FinB AND InicioB < FinA) que bloquea franjas conflictivas (17:30, 18:30 ante 18:00).
+  2. Índice único condicional en PostgreSQL (idx_reservas_sin_doble_cupo) a nivel de motor.
+- Catálogo Sincronizado: 25 ítems oficiales de la carta de Konys Pizza sincronizados
+                         con precios reales en COP (Pizzas, Entradas, Postres, Bebidas).
+- Comprobante Imprimible: Generación de ticket digital y soporte de impresión en 1 sola
+                         página optimizada mediante @media print para guardar como PDF.
+================================================================================

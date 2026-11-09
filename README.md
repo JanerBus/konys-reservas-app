@@ -6,6 +6,7 @@
 > 
 > 🚀 **Aplicación en Producción (Vercel):** [konys-reservas-app-gamma.vercel.app](https://konys-reservas-app-gamma.vercel.app/)  
 > 🔐 **Panel de Administración:** [konys-reservas-app-gamma.vercel.app/admin](https://konys-reservas-app-gamma.vercel.app/admin) *(Clave: dmin123)*  
+> 🎥 **Video Demostrativo:** [youtu.be/FeqFF1nZ1gs](https://youtu.be/FeqFF1nZ1gs)  
 > 🌐 **Menú Oficial:** [soyclubify.com/d/konys](https://soyclubify.com/d/konys)  
 > 📸 **Instagram:** [@konys_pizza](https://www.instagram.com/konys_pizza/)
 
