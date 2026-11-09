@@ -294,34 +294,47 @@
     },
 
     /**
-     * Valida si un slot ya está ocupado antes de guardar (Protección de doble reserva / race condition).
+     * Valida si un slot o rango de tiempo entra en conflicto de solapamiento con reservas existentes.
+     * Dos reservas colisionan si: inicioA < finB AND inicioB < finA (con duración de 60 min).
      */
-    async isSlotOcupado(mesaId, fecha, horaInicio) {
+    async isSlotOcupado(mesaId, fecha, horaInicio, horaFin = null) {
+      const finPropuesto = horaFin || this.calcularHoraFin(horaInicio, 60);
+
       if (supabaseClient) {
         try {
           const { data, error } = await supabaseClient
             .from('reservas')
-            .select('id')
+            .select('id, hora_inicio, hora_fin, estado')
             .eq('mesa_id', mesaId)
             .eq('fecha', fecha)
-            .eq('hora_inicio', horaInicio)
             .eq('estado', 'confirmada');
-          if (!error && data) return data.length > 0;
+
+          if (!error && data) {
+            return data.some(r => {
+              const rFin = r.hora_fin || this.calcularHoraFin(r.hora_inicio, 60);
+              return this.haySolapamiento(horaInicio, finPropuesto, r.hora_inicio, rFin);
+            });
+          }
         } catch (e) {
           console.warn('Error isSlotOcupado Supabase:', e);
         }
       }
+
       const reservas = getLocalCollection('reservas');
-      return reservas.some(
-        r => r.mesa_id === mesaId && r.fecha === fecha && r.hora_inicio === horaInicio && r.estado === 'confirmada'
-      );
+      return reservas.some(r => {
+        if (r.mesa_id !== mesaId || r.fecha !== fecha || r.estado !== 'confirmada') return false;
+        const rFin = r.hora_fin || this.calcularHoraFin(r.hora_inicio, 60);
+        return this.haySolapamiento(horaInicio, finPropuesto, r.hora_inicio, rFin);
+      });
     },
 
     async crearReserva(reservaData) {
-      // 1. Verificación previa de condición de carrera / doble reserva
-      const yaOcupado = await this.isSlotOcupado(reservaData.mesa_id, reservaData.fecha, reservaData.hora_inicio);
+      const horaFin = reservaData.hora_fin || this.calcularHoraFin(reservaData.hora_inicio, 60);
+
+      // 1. Verificación previa de condición de carrera y solapamiento de intervalos (60 min)
+      const yaOcupado = await this.isSlotOcupado(reservaData.mesa_id, reservaData.fecha, reservaData.hora_inicio, horaFin);
       if (yaOcupado) {
-        throw new Error('Lo sentimos, este horario acaba de ser reservado por otro cliente. Por favor elige otro slot.');
+        throw new Error('Conflicto de horario: Esta mesa ya cuenta con una reserva activa en este rango de tiempo (60 min). Por favor elige otro horario.');
       }
 
       const id = 'KP-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
@@ -333,7 +346,7 @@
         num_personas: parseInt(reservaData.num_personas, 10),
         fecha: reservaData.fecha,
         hora_inicio: reservaData.hora_inicio,
-        hora_fin: reservaData.hora_fin || this.calcularHoraFin(reservaData.hora_inicio),
+        hora_fin: horaFin,
         estado: 'confirmada',
         creado_en: new Date().toISOString()
       };
@@ -346,7 +359,7 @@
             throw new Error('Doble reserva detectada: Este horario ya fue confirmado.');
           }
         } catch (e) {
-          if (e.message && e.message.includes('Doble reserva')) throw e;
+          if (e.message && e.message.includes('Conflicto') || (e.message && e.message.includes('Doble reserva'))) throw e;
           console.warn('Error al guardar en Supabase, guardando en local:', e);
         }
       }
@@ -488,6 +501,22 @@
       const finH = String(d.getHours()).padStart(2, '0');
       const finM = String(d.getMinutes()).padStart(2, '0');
       return `${finH}:${finM}`;
+    },
+
+    // Convierte 'HH:MM' a minutos desde la medianoche
+    timeToMinutes(str) {
+      if (!str) return 0;
+      const [h, m] = str.split(':').map(Number);
+      return (h || 0) * 60 + (m || 0);
+    },
+
+    // Comprueba si dos intervalos de tiempo se solapan: [A1, A2) y [B1, B2)
+    haySolapamiento(inicioA, finA, inicioB, finB) {
+      const a1 = this.timeToMinutes(inicioA);
+      const a2 = this.timeToMinutes(finA);
+      const b1 = this.timeToMinutes(inicioB);
+      const b2 = this.timeToMinutes(finB);
+      return (a1 < b2 && b1 < a2);
     },
 
     // Restablecer almacenamiento local al estado inicial

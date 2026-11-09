@@ -449,10 +449,20 @@
     }
   }
 
+  // Verifica si un slot propuesto colisiona con alguna reserva existente (duración 60 min)
+  function isSlotEnConflicto(slotInicio) {
+    if (!state.reservasDelDia || state.reservasDelDia.length === 0) return false;
+    const slotFin = window.KonysDB.calcularHoraFin(slotInicio, 60);
+
+    return state.reservasDelDia.some(r => {
+      if (r.estado !== 'confirmada') return false;
+      const rFin = r.hora_fin || window.KonysDB.calcularHoraFin(r.hora_inicio, 60);
+      return window.KonysDB.haySolapamiento(slotInicio, slotFin, r.hora_inicio, rFin);
+    });
+  }
+
   // Renderiza los botones de slots para Almuerzo y Noche
   function renderSlotsGrid() {
-    const horasOcupadas = new Set(state.reservasDelDia.map(r => r.hora_inicio));
-
     // Determinar si la fecha seleccionada es fin de semana (Sábado = 6, Domingo = 0)
     let esFinde = false;
     if (state.fechaSeleccionada) {
@@ -474,7 +484,7 @@
     // 1. Jornada Almuerzo (12:00 md a 2:30 pm)
     if (dom.lunchSlotsGrid) {
       dom.lunchSlotsGrid.innerHTML = SLOTS_CONFIG.almuerzo.map(slot => {
-        const ocupado = horasOcupadas.has(slot);
+        const ocupado = isSlotEnConflicto(slot);
         const seleccionado = state.slotSeleccionado === slot;
         return `
           <button 
@@ -482,7 +492,7 @@
             class="slot-btn ${seleccionado ? 'selected' : ''}" 
             ${ocupado ? 'disabled' : ''}
             onclick="window.seleccionarSlot('${slot}')"
-            title="${ocupado ? 'Horario ya ocupado' : 'Disponible para reserva'}">
+            title="${ocupado ? 'Horario en conflicto: la mesa ya está reservada en este intervalo de 60 min' : 'Disponible para reserva'}">
             ${slot}
           </button>
         `;
@@ -492,7 +502,7 @@
     // 2. Jornada Noche
     if (dom.dinnerSlotsGrid) {
       dom.dinnerSlotsGrid.innerHTML = nightSlots.map(slot => {
-        const ocupado = horasOcupadas.has(slot);
+        const ocupado = isSlotEnConflicto(slot);
         const seleccionado = state.slotSeleccionado === slot;
         return `
           <button 
@@ -500,7 +510,7 @@
             class="slot-btn ${seleccionado ? 'selected' : ''}" 
             ${ocupado ? 'disabled' : ''}
             onclick="window.seleccionarSlot('${slot}')"
-            title="${ocupado ? 'Horario ya ocupado' : 'Disponible para reserva'}">
+            title="${ocupado ? 'Horario en conflicto: la mesa ya está reservada en este intervalo de 60 min' : 'Disponible para reserva'}">
             ${slot}
           </button>
         `;

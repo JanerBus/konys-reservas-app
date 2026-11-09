@@ -315,14 +315,26 @@
     dom.reservasTableBody.innerHTML = filtradas.map(r => {
       const mesa = mapaMesas[r.mesa_id] || r.mesas || { nombre: 'Mesa', zona: '—' };
       const estadoClass = r.estado.toLowerCase();
+      const rFin = r.hora_fin || window.KonysDB.calcularHoraFin(r.hora_inicio, 60);
+
+      // Detectar si esta reserva colisiona en horario (solapamiento de 60 min) con otra reserva confirmada en la misma mesa y fecha
+      const tieneConflicto = r.estado === 'confirmada' && state.reservas.some(other => {
+        if (other.id === r.id || other.estado !== 'confirmada') return false;
+        if (other.mesa_id !== r.mesa_id || other.fecha !== r.fecha) return false;
+        const otherFin = other.hora_fin || window.KonysDB.calcularHoraFin(other.hora_inicio, 60);
+        return window.KonysDB.haySolapamiento(r.hora_inicio, rFin, other.hora_inicio, otherFin);
+      });
 
       return `
-        <tr>
-          <td><strong style="color: var(--accent); font-family: 'Poppins';">#${r.id}</strong></td>
+        <tr ${tieneConflicto ? 'style="background-color: #FEF2F2;"' : ''}>
+          <td><strong style="color: var(--accent); font-family: \'Poppins\';">#${r.id}</strong></td>
           <td><strong>${escapeHtml(r.cliente_nombre)}</strong></td>
           <td>${escapeHtml(mesa.nombre)} <span style="font-size: 0.78rem; color: var(--text-muted);">(${escapeHtml(mesa.zona)})</span></td>
           <td>${r.fecha}</td>
-          <td>${r.hora_inicio} – ${r.hora_fin || ''}</td>
+          <td>
+            <strong>${r.hora_inicio} – ${rFin}</strong>
+            ${tieneConflicto ? '<div style="font-size: 0.72rem; color: #DC2626; font-weight: 700; margin-top: 2px;">⚠️ Solapa con otra reserva</div>' : ''}
+          </td>
           <td><strong>${r.num_personas}</strong> pers.</td>
           <td>${escapeHtml(r.cliente_contacto || '—')}</td>
           <td>
